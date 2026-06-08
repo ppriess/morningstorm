@@ -56,6 +56,13 @@ nav{position:sticky;top:0;z-index:100;background:rgba(12,11,13,.82);backdrop-fil
 .btn-ghost{background:transparent;color:var(--bone);border:1px solid var(--line)}
 .btn-ghost:hover{background:var(--concrete);border-color:var(--smoke)}
 
+/* lang switch */
+.lang-switch{display:flex;align-items:center;gap:2px;margin-left:6px;border:1px solid var(--line);padding:4px 6px}
+.lang-switch button{background:none;border:none;cursor:pointer;font-family:"JetBrains Mono",monospace;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke);padding:4px 7px;transition:color .15s;line-height:1}
+.lang-switch button.active{color:var(--glow)}
+.lang-switch button:hover:not(.active){color:var(--bone)}
+.lang-switch .sep{color:var(--line);font-size:.7rem;user-select:none}
+
 /* hero */
 .hero{position:relative;padding:120px 0 90px;overflow:hidden}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.5}
@@ -195,11 +202,16 @@ footer{border-top:1px solid var(--line);padding:60px 0 70px}
   <div class="wrap nav-in">
     <div class="brand">Morning<span>.</span>Storm</div>
     <div class="nav-links">
-      <a href="#music" class="mono">Music</a>
-      <a href="#lineup" class="mono">Lineup</a>
-      <a href="#pitch" class="mono">The tour</a>
-      <a href="#route" class="mono">Route</a>
-      <a href="#tiers" class="btn">Back the tour</a>
+      <a href="#music" class="mono" data-en="Music" data-pt="Música">Music</a>
+      <a href="#lineup" class="mono" data-en="Lineup" data-pt="Lineup">Lineup</a>
+      <a href="#pitch" class="mono" data-en="The tour" data-pt="A turnê">The tour</a>
+      <a href="#route" class="mono" data-en="Route" data-pt="Roteiro">Route</a>
+      <a href="#tiers" class="btn" data-en="Back the tour" data-pt="Apoie a turnê">Back the tour</a>
+      <div class="lang-switch">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <span class="sep">|</span>
+        <button id="btn-pt" onclick="setLang('pt')">PT</button>
+      </div>
     </div>
   </div>
 </nav>
@@ -208,26 +220,26 @@ footer{border-top:1px solid var(--line);padding:60px 0 70px}
   <img class="hero-video" src="Mars_and_Venus_colliding.gif" alt="">
   <div class="hero-shade"></div>
   <div class="wrap">
-    <div class="mono hero-tag rv d1">Brazilian stoner metal — est. [year]</div>
+    <div class="mono hero-tag rv d1" data-en="Brazilian stoner metal — est. [year]" data-pt="Stoner metal brasileiro — est. [year]">Brazilian stoner metal — est. [year]</div>
     <h1 class="rv d2">M<span class="o">O</span>RNING<br>ST<span class="o">O</span>RM</h1>
-    <p class="hero-sub rv d3">We're taking the new lineup and the new EP across Europe in <b>January 2027</b>. One van, one month, the road we've been pointing at the whole time. Here's how you get us there.</p>
+    <p class="hero-sub rv d3" data-en="We're taking the new lineup and the new EP across Europe in <b>January 2027</b>. One van, one month, the road we've been pointing at the whole time. Here's how you get us there." data-pt="A gente leva o novo lineup e o novo EP pela Europa em <b>janeiro de 2027</b>. Uma van, um mês, a estrada que a gente sempre apontou. É assim que você faz isso acontecer.">We're taking the new lineup and the new EP across Europe in <b>January 2027</b>. One van, one month, the road we've been pointing at the whole time. Here's how you get us there.</p>
     <div class="hero-cta rv d3">
-      <a href="#tiers" class="btn">Back the tour</a>
-      <a href="#music" class="btn btn-ghost">Listen first</a>
+      <a href="#tiers" class="btn" data-en="Back the tour" data-pt="Apoie a turnê">Back the tour</a>
+      <a href="#music" class="btn btn-ghost" data-en="Listen first" data-pt="Ouça primeiro">Listen first</a>
     </div>
 
     <div class="fund rv d4">
       <div class="fund-top">
         <div>
-          <div class="fund-raised">R$ 31.200<small>raised of R$ 48.000 goal</small></div>
+          <div class="fund-raised">R$ 31.200<small data-en="raised of R$ 48.000 goal" data-pt="arrecadado de R$ 48.000">raised of R$ 48.000 goal</small></div>
         </div>
         <div class="fund-meta">
-          <span class="mono">214 backers</span>
-          <span class="mono">38 days left</span>
+          <span class="mono" data-en="214 backers" data-pt="214 apoiadores">214 backers</span>
+          <span class="mono" data-en="38 days left" data-pt="38 dias restantes">38 days left</span>
         </div>
       </div>
       <div class="bar"><div class="bar-fill"></div></div>
-      <div class="bar-pct"><span class="mono">65% funded</span></div>
+      <div class="bar-pct"><span class="mono" data-en="65% funded" data-pt="65% financiado">65% funded</span></div>
     </div>
   </div>
 </header>
@@ -236,15 +248,15 @@ footer{border-top:1px solid var(--line);padding:60px 0 70px}
   <div class="wrap">
     <div class="pitch-grid">
       <div>
-        <span class="mono eyebrow">Why we're asking</span>
-        <h2 class="sec-h">What the money<br>moves</h2>
-        <p class="pitch-lead">A month on the road through Germany and its neighbors runs on more than riffs. No label, no agency — just us and whoever decides to stand behind it. <b>Every cent has a job.</b></p>
+        <span class="mono eyebrow" data-en="Why we're asking" data-pt="Por que estamos pedindo">Why we're asking</span>
+        <h2 class="sec-h" data-en="What the money<br>moves" data-pt="O que o dinheiro<br>move">What the money<br>moves</h2>
+        <p class="pitch-lead" data-en="A month on the road through Germany and its neighbors runs on more than riffs. No label, no agency — just us and whoever decides to stand behind it. <b>Every cent has a job.</b>" data-pt="Um mês na estrada pela Alemanha e seus vizinhos custa mais do que riffs. Sem gravadora, sem agência — só a gente e quem decidir nos apoiar. <b>Cada centavo tem uma função.</b>">A month on the road through Germany and its neighbors runs on more than riffs. No label, no agency — just us and whoever decides to stand behind it. <b>Every cent has a job.</b></p>
       </div>
       <ul class="lines">
-        <li><span class="n">01</span><span class="t"><b>Van & fuel</b><span>[N] dates across [N] countries, clockwise from Bamberg.</span></span></li>
-        <li><span class="n">02</span><span class="t"><b>Gear & backline</b><span>Amps, the shared kit, and the cases it all ships in.</span></span></li>
-        <li><span class="n">03</span><span class="t"><b>Beds & borders</b><span>Lodging and the cost of moving four people through a European winter.</span></span></li>
-        <li><span class="n">04</span><span class="t"><b>The EP, pressed</b><span>Physical run so there's something to sell off the merch table every night.</span></span></li>
+        <li><span class="n">01</span><span class="t"><b data-en="Van &amp; fuel" data-pt="Van &amp; combustível">Van &amp; fuel</b><span data-en="[N] dates across [N] countries, clockwise from Bamberg." data-pt="[N] shows em [N] países, sentido horário a partir de Bamberg.">[N] dates across [N] countries, clockwise from Bamberg.</span></span></li>
+        <li><span class="n">02</span><span class="t"><b data-en="Gear &amp; backline" data-pt="Equipamento &amp; backline">Gear &amp; backline</b><span data-en="Amps, the shared kit, and the cases it all ships in." data-pt="Amplificadores, o kit compartilhado e as malas onde tudo vai.">Amps, the shared kit, and the cases it all ships in.</span></span></li>
+        <li><span class="n">03</span><span class="t"><b data-en="Beds &amp; borders" data-pt="Camas &amp; fronteiras">Beds &amp; borders</b><span data-en="Lodging and the cost of moving four people through a European winter." data-pt="Hospedagem e o custo de mover quatro pessoas pelo inverno europeu.">Lodging and the cost of moving four people through a European winter.</span></span></li>
+        <li><span class="n">04</span><span class="t"><b data-en="The EP, pressed" data-pt="O EP, prensado">The EP, pressed</b><span data-en="Physical run so there's something to sell off the merch table every night." data-pt="Tiragem física para ter algo para vender no merch todo dia.">Physical run so there's something to sell off the merch table every night.</span></span></li>
       </ul>
     </div>
   </div>
@@ -254,10 +266,10 @@ footer{border-top:1px solid var(--line);padding:60px 0 70px}
   <div class="wrap">
     <div class="music-head">
       <div>
-        <span class="mono eyebrow">Hear what you're funding</span>
-        <h2 class="sec-h">The new EP</h2>
+        <span class="mono eyebrow" data-en="Hear what you're funding" data-pt="Ouça o que você está financiando">Hear what you're funding</span>
+        <h2 class="sec-h" data-en="The new EP" data-pt="O novo EP">The new EP</h2>
       </div>
-      <a href="#tiers" class="btn">Get the EP — back the tour</a>
+      <a href="#tiers" class="btn" data-en="Get the EP — back the tour" data-pt="Pega o EP — apoia a turnê">Get the EP — back the tour</a>
     </div>
     <div class="video-wrap">
       <iframe src="https://www.youtube-nocookie.com/embed/nE5Fdlh3lVY?rel=0"
@@ -276,54 +288,54 @@ footer{border-top:1px solid var(--line);padding:60px 0 70px}
 
 <section id="tiers">
   <div class="wrap">
-    <span class="mono eyebrow">Pick where you stand</span>
-    <h2 class="sec-h" style="margin-bottom:48px">Back the tour</h2>
+    <span class="mono eyebrow" data-en="Pick where you stand" data-pt="Escolha onde você está">Pick where you stand</span>
+    <h2 class="sec-h" style="margin-bottom:48px" data-en="Back the tour" data-pt="Apoie a turnê">Back the tour</h2>
     <div class="tiers">
 
       <div class="tier rv d1">
-        <span class="mono tier-flag">Tier 01</span>
-        <div class="tier-name">Roadie</div>
+        <span class="mono tier-flag" data-en="Tier 01" data-pt="Tier 01">Tier 01</span>
+        <div class="tier-name" data-en="Roadie" data-pt="Roadie">Roadie</div>
         <div class="tier-price">R$25</div>
         <ul>
-          <li><span>Digital <b>EP</b> download</span></li>
-          <li><span>Name in the online <b>backers list</b></span></li>
+          <li><span data-en="Digital <b>EP</b> download" data-pt="Download digital do <b>EP</b>">Digital <b>EP</b> download</span></li>
+          <li><span data-en="Name in the online <b>backers list</b>" data-pt="Nome na lista online de <b>apoiadores</b>">Name in the online <b>backers list</b></span></li>
         </ul>
-        <a href="#" class="btn btn-ghost">Choose</a>
+        <a href="#" class="btn btn-ghost" data-en="Choose" data-pt="Escolher">Choose</a>
       </div>
 
       <div class="tier feat rv d2">
-        <span class="mono tier-flag">Tier 02 — most picked</span>
-        <div class="tier-name">Crew</div>
+        <span class="mono tier-flag" data-en="Tier 02 — most picked" data-pt="Tier 02 — mais escolhido">Tier 02 — most picked</span>
+        <div class="tier-name" data-en="Crew" data-pt="Crew">Crew</div>
         <div class="tier-price">R$70</div>
         <ul>
-          <li><span>Everything in <b>Roadie</b></span></li>
-          <li><span>Official <b>tour shirt</b></span></li>
+          <li><span data-en="Everything in <b>Roadie</b>" data-pt="Tudo do <b>Roadie</b>">Everything in <b>Roadie</b></span></li>
+          <li><span data-en="Official <b>tour shirt</b>" data-pt="Camiseta oficial da <b>turnê</b>">Official <b>tour shirt</b></span></li>
         </ul>
-        <a href="#" class="btn">Choose</a>
+        <a href="#" class="btn" data-en="Choose" data-pt="Escolher">Choose</a>
       </div>
 
       <div class="tier rv d3">
-        <span class="mono tier-flag">Tier 03</span>
-        <div class="tier-name">Front Row</div>
+        <span class="mono tier-flag" data-en="Tier 03" data-pt="Tier 03">Tier 03</span>
+        <div class="tier-name" data-en="Front Row" data-pt="Front Row">Front Row</div>
         <div class="tier-price">R$150</div>
         <ul>
-          <li><span>Everything in <b>Crew</b></span></li>
-          <li><span>Woven <b>patch</b></span></li>
-          <li><span>Your name <b>in the EP booklet</b></span></li>
+          <li><span data-en="Everything in <b>Crew</b>" data-pt="Tudo do <b>Crew</b>">Everything in <b>Crew</b></span></li>
+          <li><span data-en="Woven <b>patch</b>" data-pt="<b>Patch</b> bordado">Woven <b>patch</b></span></li>
+          <li><span data-en="Your name <b>in the EP booklet</b>" data-pt="Seu nome <b>no encarte do EP</b>">Your name <b>in the EP booklet</b></span></li>
         </ul>
-        <a href="#" class="btn btn-ghost">Choose</a>
+        <a href="#" class="btn btn-ghost" data-en="Choose" data-pt="Escolher">Choose</a>
       </div>
 
       <div class="tier rv d4">
-        <span class="mono tier-flag">Tier 04 — limited</span>
-        <div class="tier-name">Tour Family</div>
+        <span class="mono tier-flag" data-en="Tier 04 — limited" data-pt="Tier 04 — limitado">Tier 04 — limited</span>
+        <div class="tier-name" data-en="Tour Family" data-pt="Tour Family">Tour Family</div>
         <div class="tier-price">R$350</div>
         <ul>
-          <li><span>Everything above</span></li>
-          <li><span>Signed <b>test pressing</b></span></li>
-          <li><span>Postcard mailed <b>from the road</b></span></li>
+          <li><span data-en="Everything above" data-pt="Tudo acima">Everything above</span></li>
+          <li><span data-en="Signed <b>test pressing</b>" data-pt="<b>Test pressing</b> autografado">Signed <b>test pressing</b></span></li>
+          <li><span data-en="Postcard mailed <b>from the road</b>" data-pt="Cartão postal enviado <b>da estrada</b>">Postcard mailed <b>from the road</b></span></li>
         </ul>
-        <a href="#" class="btn btn-ghost">Choose</a>
+        <a href="#" class="btn btn-ghost" data-en="Choose" data-pt="Escolher">Choose</a>
       </div>
 
     </div>
@@ -332,27 +344,27 @@ footer{border-top:1px solid var(--line);padding:60px 0 70px}
 
 <section id="lineup">
   <div class="wrap">
-    <span class="mono eyebrow">Who's going</span>
-    <h2 class="sec-h" style="margin-bottom:48px">The lineup</h2>
+    <span class="mono eyebrow" data-en="Who's going" data-pt="Quem vai">Who's going</span>
+    <h2 class="sec-h" style="margin-bottom:48px" data-en="The lineup" data-pt="O lineup">The lineup</h2>
     <div class="lineup">
       <div class="member rv d1">
         <div class="ph"><span class="mono">[ photo ]</span></div>
-        <div class="info"><span class="mono role">Vocals</span><div class="name">[Name]</div></div>
+        <div class="info"><span class="mono role" data-en="Vocals" data-pt="Vocal">Vocals</span><div class="name">[Name]</div></div>
       </div>
       <div class="member rv d2">
         <div class="ph"><span class="mono">[ photo ]</span></div>
-        <div class="info"><span class="mono role">Guitar</span><div class="name">[Name]</div></div>
+        <div class="info"><span class="mono role" data-en="Guitar" data-pt="Guitarra">Guitar</span><div class="name">[Name]</div></div>
       </div>
       <div class="member rv d3">
         <div class="ph"><span class="mono">[ photo ]</span></div>
-        <div class="info"><span class="mono role">Bass</span><div class="name">[Name]</div></div>
+        <div class="info"><span class="mono role" data-en="Bass" data-pt="Baixo">Bass</span><div class="name">[Name]</div></div>
       </div>
       <div class="member rv d4">
         <div class="ph"><span class="mono">[ photo ]</span></div>
-        <div class="info"><span class="mono role">Drums</span><div class="name">[Name]</div></div>
+        <div class="info"><span class="mono role" data-en="Drums" data-pt="Bateria">Drums</span><div class="name">[Name]</div></div>
       </div>
     </div>
-    <p style="margin-top:28px;color:var(--smoke);max-width:560px">[Short line on the new lineup — when it came together, what changed, who's behind the EP.]</p>
+    <p style="margin-top:28px;color:var(--smoke);max-width:560px" data-en="[Short line on the new lineup — when it came together, what changed, who's behind the EP.]" data-pt="[Texto sobre o novo lineup — quando se formou, o que mudou, quem está por trás do EP.]">[Short line on the new lineup — when it came together, what changed, who's behind the EP.]</p>
   </div>
 </section>
 
@@ -360,7 +372,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 70px}
   <div class="wrap">
     <div class="route-grid">
       <div class="map-box">
-        <span class="mono">[ route map — clockwise ]</span>
+        <span class="mono" data-en="[ route map — clockwise ]" data-pt="[ mapa da rota — sentido horário ]">[ route map — clockwise ]</span>
         <span class="map-dot" style="top:28%;left:54%"></span>
         <span class="map-dot" style="top:40%;left:60%"></span>
         <span class="map-dot" style="top:52%;left:50%;background:var(--glow-2);width:12px;height:12px"></span>
@@ -369,18 +381,21 @@ footer{border-top:1px solid var(--line);padding:60px 0 70px}
         <span class="map-dot" style="top:33%;left:42%"></span>
       </div>
       <div>
-        <span class="mono eyebrow">January 2027</span>
-        <h2 class="sec-h" style="margin-bottom:28px">The route</h2>
+        <span class="mono eyebrow" data-en="January 2027" data-pt="Janeiro 2027">January 2027</span>
+        <h2 class="sec-h" style="margin-bottom:28px" data-en="The route" data-pt="O roteiro">The route</h2>
         <ul class="dates">
           <li><span class="city">Berlin</span><span class="meta">DE · 09 Jan · TBC</span></li>
           <li><span class="city">Leipzig</span><span class="meta">DE · 11 Jan · TBC</span></li>
           <li><span class="city">Prague</span><span class="meta">CZ · 13 Jan · TBC</span></li>
-          <li class="anchor"><span class="city">Bamberg</span><span class="meta">DE · 15 Jan · Thomann run</span></li>
+          <li class="anchor"><span class="city">Bamberg</span><span class="meta" data-en="DE · 15 Jan · Thomann run" data-pt="DE · 15 Jan · Thomann run">DE · 15 Jan · Thomann run</span></li>
           <li><span class="city">München</span><span class="meta">DE · 17 Jan · TBC</span></li>
           <li><span class="city">Köln</span><span class="meta">DE · 20 Jan · TBC</span></li>
           <li><span class="city">Hamburg</span><span class="meta">DE · 22 Jan · TBC</span></li>
         </ul>
-        <p style="margin-top:24px;color:var(--smoke);font-size:.95rem">Promoter or venue with a slot? <a href="#" style="color:var(--glow)">Get in touch →</a></p>
+        <p style="margin-top:24px;color:var(--smoke);font-size:.95rem">
+          <span data-en="Promoter or venue with a slot?" data-pt="Promoter ou casa com uma data disponível?">Promoter or venue with a slot?</span>
+          <a href="#" style="color:var(--glow)" data-en="Get in touch →" data-pt="Entre em contato →"> Get in touch →</a>
+        </p>
       </div>
     </div>
   </div>
@@ -388,12 +403,12 @@ footer{border-top:1px solid var(--line);padding:60px 0 70px}
 
 <section id="join" style="padding-top:0;border-top:none">
   <div class="wrap capture">
-    <span class="mono eyebrow">Not ready to back?</span>
-    <h2 class="sec-h">Get on the list</h2>
-    <p>Drop your email. You'll get the EP early, the first confirmed dates, and a heads-up before the campaign closes.</p>
+    <span class="mono eyebrow" data-en="Not ready to back?" data-pt="Ainda não está pronto para apoiar?">Not ready to back?</span>
+    <h2 class="sec-h" data-en="Get on the list" data-pt="Entre na lista">Get on the list</h2>
+    <p data-en="Drop your email. You'll get the EP early, the first confirmed dates, and a heads-up before the campaign closes." data-pt="Deixe seu email. Você recebe o EP antes de todo mundo, as primeiras datas confirmadas e um aviso antes da campanha fechar.">Drop your email. You'll get the EP early, the first confirmed dates, and a heads-up before the campaign closes.</p>
     <div class="form-row">
-      <input type="email" placeholder="you@email.com" aria-label="Email address">
-      <a href="#" class="btn">Join</a>
+      <input type="email" id="email-input" placeholder="you@email.com" data-placeholder-en="you@email.com" data-placeholder-pt="voce@email.com" aria-label="Email address">
+      <a href="#" class="btn" data-en="Join" data-pt="Entrar">Join</a>
     </div>
   </div>
 </section>
@@ -412,6 +427,19 @@ footer{border-top:1px solid var(--line);padding:60px 0 70px}
     <div class="foot-legal">© 2026 Morning Storm · Blumenau, BR → Europe, 2027</div>
   </div>
 </footer>
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = el.dataset[lang];
+  });
+  const input = document.getElementById('email-input');
+  if (input) input.placeholder = input.dataset['placeholder' + lang.charAt(0).toUpperCase() + lang.slice(1)];
+  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+}
+</script>
 
 </body>
 </html>
