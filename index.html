@@ -183,11 +183,27 @@ footer{border-top:1px solid var(--line);padding:60px 0 70px}
 @keyframes rv{to{opacity:1;transform:none}}
 .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.28s}.d4{animation-delay:.4s}
 
+/* hamburger */
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:8px;width:40px;height:40px}
+.hamburger span{display:block;height:2px;background:var(--bone);transition:transform .25s,opacity .25s,width .25s}
+.hamburger span:nth-child(3){width:60%}
+nav.open .hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+nav.open .hamburger span:nth-child(2){opacity:0}
+nav.open .hamburger span:nth-child(3){width:100%;transform:translateY(-7px) rotate(-45deg)}
+
+/* mobile drawer */
+.nav-drawer{display:none;flex-direction:column;gap:0;background:rgba(12,11,13,.97);border-top:1px solid var(--line);padding:16px 0 24px}
+.nav-drawer a,.nav-drawer .lang-switch{display:block;padding:14px 32px;border-bottom:1px solid var(--line)}
+.nav-drawer a.btn{margin:20px 32px 0;display:block;text-align:center;border-bottom:none}
+.nav-drawer .lang-switch{border-bottom:none;margin-top:4px}
+nav.open .nav-drawer{display:flex}
+
 @media(max-width:880px){
   .pitch-grid,.route-grid{grid-template-columns:1fr;gap:36px}
   .tiers,.lineup{grid-template-columns:1fr 1fr}
-  .nav-links .mono{display:none}
   .capture{padding:40px 24px}
+  .hamburger{display:flex}
+  .nav-links{display:none}
 }
 @media(max-width:560px){
   .tiers{grid-template-columns:1fr}
@@ -198,7 +214,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 70px}
 </head>
 <body>
 
-<nav>
+<nav id="nav">
   <div class="wrap nav-in">
     <div class="brand">Morning<span>.</span>Storm</div>
     <div class="nav-links">
@@ -212,6 +228,21 @@ footer{border-top:1px solid var(--line);padding:60px 0 70px}
         <span class="sep">|</span>
         <button id="btn-pt" onclick="setLang('pt')">PT</button>
       </div>
+    </div>
+    <button class="hamburger" aria-label="Menu" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-drawer">
+    <a href="#music" class="mono" data-en="Music" data-pt="Música" onclick="toggleNav()">Music</a>
+    <a href="#lineup" class="mono" data-en="Lineup" data-pt="Lineup" onclick="toggleNav()">Lineup</a>
+    <a href="#pitch" class="mono" data-en="The tour" data-pt="A turnê" onclick="toggleNav()">The tour</a>
+    <a href="#route" class="mono" data-en="Route" data-pt="Roteiro" onclick="toggleNav()">Route</a>
+    <a href="#tiers" class="btn" data-en="Back the tour" data-pt="Apoie a turnê" onclick="toggleNav()">Back the tour</a>
+    <div class="lang-switch">
+      <button id="btn-en-m" class="active" onclick="setLang('en')">EN</button>
+      <span class="sep">|</span>
+      <button id="btn-pt-m" onclick="setLang('pt')">PT</button>
     </div>
   </div>
 </nav>
@@ -429,6 +460,10 @@ footer{border-top:1px solid var(--line);padding:60px 0 70px}
 </footer>
 
 <script>
+function toggleNav() {
+  document.getElementById('nav').classList.toggle('open');
+}
+
 function setLang(lang) {
   document.querySelectorAll('[data-en]').forEach(el => {
     el.innerHTML = el.dataset[lang];
@@ -436,8 +471,8 @@ function setLang(lang) {
   const input = document.getElementById('email-input');
   if (input) input.placeholder = input.dataset['placeholder' + lang.charAt(0).toUpperCase() + lang.slice(1)];
   document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
-  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-  document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+  ['btn-en','btn-en-m'].forEach(id => { const b = document.getElementById(id); if(b) b.classList.toggle('active', lang === 'en'); });
+  ['btn-pt','btn-pt-m'].forEach(id => { const b = document.getElementById(id); if(b) b.classList.toggle('active', lang === 'pt'); });
 }
 </script>
 
