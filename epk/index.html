@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MORNING STORM — EPK · Electronic Press Kit</title>
+<meta name="description" content="Morning Storm — stoner metal from Blumenau, Brazil. European tour January 2027. Booking open.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#131110; --panel:#1b1815; --line:rgba(245,166,35,.16);
+  --ink:#ece6dd; --muted:#9a907f;
+  --amber:#f5a623; --hot:#ff7a3d;
+  --display:'Anton',sans-serif; --body:'DM Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.65;
+  background-image:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(245,166,35,.06),transparent)}
+a{color:var(--amber)}
+.wrap{max-width:880px;margin:0 auto;padding:0 22px}
+
+/* ---- tiras de dados (assinatura: estética de datesheet) ---- */
+.strip{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  display:flex;gap:14px;flex-wrap:wrap;justify-content:center;align-items:center}
+.strip b{color:var(--amber);font-weight:700}
+.strip .div{color:var(--amber);opacity:.5}
+
+/* ---- hero ---- */
+header{padding:72px 0 40px;text-align:center;border-bottom:1px solid var(--line)}
+h1{font-family:var(--display);font-size:clamp(64px,13vw,128px);line-height:.92;letter-spacing:.01em;
+  text-transform:uppercase;color:var(--ink)}
+h1 span{color:var(--amber)}
+.stamp{display:inline-block;margin:34px 0 6px;padding:12px 26px;border:3px solid var(--hot);color:var(--hot);
+  font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:.18em;text-transform:uppercase;
+  transform:rotate(-2.5deg);border-radius:4px}
+.stamp small{display:block;font-size:10.5px;letter-spacing:.22em;color:var(--amber);margin-top:4px}
+
+/* ---- seções ---- */
+section{padding:54px 0;border-bottom:1px solid var(--line)}
+h2{font-family:var(--display);font-size:30px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:6px}
+p{max-width:64ch;color:var(--ink)}
+p+p{margin-top:14px}
+.muted{color:var(--muted)}
+
+/* ---- vídeo ---- */
+.video{position:relative;width:100%;aspect-ratio:16/9;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:12px;letter-spacing:.15em;color:var(--muted);text-transform:uppercase}
+
+/* ---- discografia ---- */
+.disco{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-top:22px}
+.rel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px 16px;text-decoration:none;color:var(--ink);
+  transition:border-color .15s}
+.rel:hover{border-color:var(--amber)}
+.rel .y{font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:.12em}
+.rel .t{font-family:var(--display);font-size:19px;letter-spacing:.03em;text-transform:uppercase;line-height:1.15;margin:6px 0 4px}
+.rel .f{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+
+/* ---- destaque EP novo ---- */
+.callout{background:linear-gradient(120deg,rgba(245,166,35,.10),rgba(255,122,61,.05));border:1px solid var(--amber);
+  border-radius:10px;padding:26px 28px;margin-top:24px}
+.callout .t{font-family:var(--display);font-size:26px;text-transform:uppercase;letter-spacing:.03em;color:var(--amber)}
+
+/* ---- lineup ---- */
+.lineup{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:20px}
+.member{border-left:3px solid var(--amber);padding:4px 0 4px 16px}
+.member .n{font-family:var(--display);font-size:20px;text-transform:uppercase;letter-spacing:.03em}
+.member .r{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+
+/* ---- fotos ---- */
+.photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:22px}
+.photos .ph{aspect-ratio:3/2;background:var(--panel);border:1px dashed var(--line);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;
+  letter-spacing:.15em;color:var(--muted);text-transform:uppercase}
+.photos img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+
+/* ---- links / booking ---- */
+.links{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.links a{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;
+  border:1px solid var(--line);border-radius:99px;padding:10px 20px;color:var(--ink);transition:border-color .15s}
+.links a:hover{border-color:var(--amber);color:var(--amber)}
+.booking{text-align:center;padding:70px 0 80px}
+.booking .mail{font-family:var(--display);font-size:clamp(26px,5.4vw,46px);text-transform:uppercase;
+  letter-spacing:.02em;color:var(--amber);text-decoration:none;word-break:break-all}
+.booking .mail:hover{color:var(--hot)}
+footer{padding:26px 0 40px;border-top:1px solid var(--line)}
+
+details{margin-top:26px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+details summary{cursor:pointer;padding:14px 18px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--amber)}
+details .inner{padding:4px 20px 20px}
+
+/* ---- textura grunge nas seções alternadas ---- */
+section:nth-of-type(even){position:relative;background:#161310}
+section:nth-of-type(even)::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.96 0 0 0 0 0.65 0 0 0 0 0.14 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+section:nth-of-type(even)::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.35;
+  background:
+    repeating-linear-gradient(115deg,transparent 0 140px,rgba(245,166,35,.045) 140px 141px,transparent 141px 290px),
+    repeating-linear-gradient(63deg,transparent 0 220px,rgba(236,230,221,.03) 220px 221px,transparent 221px 410px);
+  mask-image:radial-gradient(120% 90% at 50% 40%,#000 55%,transparent 100%)}
+section:nth-of-type(even) .wrap{position:relative;z-index:1}
+
+/* ---- vídeo de fundo do hero ---- */
+header{position:relative;overflow:hidden}
+.herovid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.38;filter:saturate(.9)}
+header::after{content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(19,17,16,.55),rgba(19,17,16,.35) 45%,var(--bg) 96%)}
+header .wrap{position:relative;z-index:2}
+@media (prefers-reduced-motion:reduce){.herovid{display:none}}
+
+/* ---- van em movimento ---- */
+.vanlane{position:absolute;left:0;right:0;bottom:14px;height:120px;z-index:3;pointer-events:none;overflow:visible;
+  animation:vandrive 46s linear infinite}
+.vanlane img{width:200px;animation:vanbob 1.1s ease-in-out infinite;
+  filter:drop-shadow(0 10px 14px rgba(0,0,0,.55))}
+@keyframes vandrive{from{transform:translateX(100vw)}to{transform:translateX(-240px)}}
+@keyframes vanbob{0%,100%{transform:translateY(0) rotate(-.4deg)}50%{transform:translateY(-3px) rotate(.4deg)}}
+@media (prefers-reduced-motion:reduce){.vanlane{animation:none;left:auto;right:4%}.vanlane img{animation:none}}
+@media (max-width:860px){.vanlane img{width:140px}}
+
+/* ---- logo + glitch ---- */
+.brandmark{width:min(520px,82vw);height:auto;display:block;position:relative;
+  filter:url(#water-ripple) drop-shadow(0 6px 24px rgba(0,0,0,.6));
+  animation:liquid-swim 8s infinite ease-in-out alternate}
+.logo-glitch{position:relative;display:inline-block}
+.logo-glitch::before,.logo-glitch::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:url('logo-transp-white.png') no-repeat center/contain;opacity:.8;mix-blend-mode:screen}
+/* Neon green channel — slow 12s cycle, glitches in rare bursts */
+.logo-glitch::before{animation:glitch-anim-1 12s infinite linear alternate-reverse;
+  filter:drop-shadow(-3px -2px 0 #00ff00) hue-rotate(90deg)}
+/* Neon red channel */
+.logo-glitch::after{animation:glitch-anim-2 12s infinite linear alternate-reverse;
+  filter:drop-shadow(3px 2px 0 #ff0000) hue-rotate(0deg)}
+/* Diagonal tear movements using mixed X and Y translations */
+@keyframes glitch-anim-1{
+  0%{clip-path:inset(40% 0 61% 0);transform:translate(-4px,-2px) skew(.3deg)}
+  5%{clip-path:inset(92% 0 1% 0);transform:translate(2px,3px) skew(-.5deg)}
+  10%{clip-path:inset(15% 0 80% 0);transform:translate(0,0) skew(0deg)}
+  60%{clip-path:inset(80% 0 5% 0);transform:translate(-2px,1px) skew(-.2deg)}
+  65%{clip-path:inset(3% 0 92% 0);transform:translate(3px,-3px) skew(.4deg)}
+  70%{clip-path:inset(60% 0 35% 0);transform:translate(0,0) skew(0deg)}
+  100%{clip-path:inset(60% 0 35% 0);transform:translate(0,0)}
+}
+@keyframes glitch-anim-2{
+  0%{clip-path:inset(25% 0 58% 0);transform:translate(3px,2px) skew(-.2deg)}
+  5%{clip-path:inset(70% 0 25% 0);transform:translate(-3px,-1px) skew(.4deg)}
+  10%{clip-path:inset(5% 0 85% 0);transform:translate(0,0) skew(0deg)}
+  65%{clip-path:inset(90% 0 2% 0);transform:translate(2px,4px) skew(.1deg)}
+  70%{clip-path:inset(33% 0 60% 0);transform:translate(-4px,-2px) skew(-.5deg)}
+  75%{clip-path:inset(12% 0 78% 0);transform:translate(0,0) skew(0deg)}
+  100%{clip-path:inset(12% 0 78% 0);transform:translate(0,0)}
+}
+/* Liquid ripple — SVG displacement filter warps the logo pixels like water,
+   while a slow swim drift shifts how the noise bends the edges */
+@keyframes liquid-swim{
+  0%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(1px,-2px) scale(1.005)}
+  100%{transform:translate(-1px,1px) scale(.998)}
+}
+@media (prefers-reduced-motion:reduce){
+  .logo-glitch::before,.logo-glitch::after{display:none}
+  .brandmark{filter:drop-shadow(0 6px 24px rgba(0,0,0,.6))}
+}
+</style>
+</head>
+<body>
+
+<!-- Filtro SVG do efeito líquido no logo (invisível, só definição) -->
+<svg width="0" height="0" style="position:absolute;pointer-events:none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="water-ripple">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.05" numOctaves="2" result="noise">
+        <animate attributeName="baseFrequency" dur="7s" repeatCount="indefinite"
+          values="0.02 0.05;0.028 0.065;0.022 0.045;0.02 0.05"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<header>
+  <!-- VÍDEO DE FUNDO: coloque o arquivo hero.mp4 na mesma pasta deste HTML -->
+  <video class="herovid" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+    <source src="hero.mp4" type="video/mp4">
+  </video>
+  <div class="wrap">
+    <h1><span class="logo-glitch"><img class="brandmark" src="logo-transp-white.png" alt="Morning Storm"></span></h1>
+    <div class="strip" style="margin-top:18px">
+      <span><b>Stoner Metal</b></span><span class="div">//</span>
+      <span>Blumenau · Brazil</span><span class="div">//</span>
+      <span>Est. <b>2015</b></span>
+    </div>
+    <div class="stamp">European Tour · January 2027<small>Booking Open</small></div>
+  </div>
+  <!-- VAN ANIMADA: coloque van.png na mesma pasta deste HTML -->
+  <div class="vanlane"><img src="van.png" alt="" onerror="this.parentNode.remove()"></div>
+</header>
+
+<section id="video">
+  <div class="wrap">
+    <div class="eyebrow">Watch</div>
+    <h2>Fans Favorite</h2>
+    <div class="video" style="margin-top:18px">
+      <iframe src="https://www.youtube-nocookie.com/embed/YGgUEh_j6aE" title="Morning Storm — live" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="muted" style="margin-top:12px;font-size:14px">More on
+      <a href="https://www.youtube.com/@morningstormband1640/videos" target="_blank" rel="noopener">YouTube</a>.</p>
+  </div>
+</section>
+
+<section id="bio">
+  <div class="wrap">
+    <div class="eyebrow">Press release</div>
+    <h2>The Band</h2>
+    <p style="margin-top:14px">Morning Storm is a stoner metal three-piece from Blumenau, southern Brazil. The band
+      was formed in 2015, but its foundations run much deeper: between them, the members carry decades of stage
+      experience — guitars and vocals in the hands of a musician playing live since the late '80s, a bassist who
+      teaches music for a living, and a drummer whose work across multiple bands has made him one of the most
+      in-demand players in the regional scene.</p>
+    <p>That history shapes the sound. Morning Storm drinks straight from the moment genres started bleeding into
+      each other and grunge kicked the door in: stoner metal at its core, swinging between introspective passages
+      and explosive bursts, with alt metal, thrash and hardcore running through its bloodstream. The lyrics range
+      from the psychological and introspective (<em>“Dark Side”</em>, <em>“Masks”</em>) to sharp social commentary
+      (<em>“Fight for Your Life”</em>, <em>“Ghost Town”</em>, written about life on the streets) — and keep
+      expanding into new territory.</p>
+    <p>After the 2021 EP <em>Dark Side</em> and a steady run of singles and live work, 2026 is the band's biggest
+      year yet. A new EP is in production, with lead single and video <em>“Mars &amp; Venus”</em> out in July. In
+      October, Morning Storm opens for RODOX — the new band of Rodolfo Abrantes (ex-Raimundos), one of the defining
+      voices of Brazilian rock. In January 2027, Morning Storm crosses the Atlantic for its first European tour —
+      routing is underway and dates are still open for booking.</p>
+    <div class="strip" style="justify-content:flex-start;margin-top:26px">
+      <span>Est. <b>2015</b></span><span class="div">//</span>
+      <span><b>50+</b> shows</span><span class="div">//</span>
+      <span><b>4</b> releases</span><span class="div">//</span>
+      <span>New EP <b>2026</b></span>
+    </div>
+
+    <details>
+      <summary>Versão em português</summary>
+      <div class="inner">
+        <p>Morning Storm é um power trio de stoner metal de Blumenau, Santa Catarina. A banda foi formada em 2015,
+          mas suas raízes vêm de muito antes: somados, os integrantes carregam décadas de estrada — guitarra e
+          vocal nas mãos de um músico em atividade desde o fim dos anos 80, um baixista que é professor de música
+          e um baterista cuja passagem por diversas bandas o tornou um dos nomes mais requisitados da cena regional.</p>
+        <p style="margin-top:12px">Essa bagagem molda o som. Morning Storm bebe direto da época em que os gêneros
+          começaram a se misturar e o grunge arrombou a porta: stoner metal na essência, alternando entre passagens
+          introspectivas e explosões de peso, com alt metal, thrash e hardcore correndo nas veias. As letras vão do
+          psicológico e introspectivo (<em>“Dark Side”</em>, <em>“Masks”</em>) à crítica social afiada
+          (<em>“Fight for Your Life”</em>, <em>“Ghost Town”</em>, sobre a população em situação de rua) — e seguem
+          abrindo novos caminhos.</p>
+        <p style="margin-top:12px">Depois do EP <em>Dark Side</em> (2021) e de uma sequência constante de singles e
+          shows, 2026 é o maior ano da história da banda. Um novo EP está em produção, com o single e clipe
+          <em>“Mars &amp; Venus”</em> chegando em julho. Em outubro, a Morning Storm abre para o RODOX, a nova banda
+          de Rodolfo Abrantes. E em janeiro de 2027, a banda cruza o Atlântico para sua primeira turnê europeia — o
+          roteiro está em construção e há datas em aberto.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section id="ep">
+  <div class="wrap">
+    <div class="eyebrow">New music</div>
+    <h2>Next Up</h2>
+    <div class="callout">
+      <div class="strip" style="justify-content:flex-start;margin-bottom:8px">
+        <span>Single + video</span><span class="div">//</span><span><b>July 2026</b></span>
+      </div>
+      <div class="t">“Mars &amp; Venus”</div>
+      <p style="margin-top:10px">Lead single from the upcoming EP, currently in recording — the record Morning
+        Storm brings to Europe in January 2027.</p>
+    </div>
+  </div>
+</section>
+
+<section id="discography">
+  <div class="wrap">
+    <div class="eyebrow">Listen</div>
+    <h2>Discography</h2>
+    <div class="disco">
+      <a class="rel" href="https://open.spotify.com/artist/00cH3oVJcHmZCkj8xq1Cs2" target="_blank" rel="noopener">
+        <div class="y">2024</div><div class="t">Fight for Your Life</div><div class="f">Single</div></a>
+      <a class="rel" href="https://open.spotify.com/artist/00cH3oVJcHmZCkj8xq1Cs2" target="_blank" rel="noopener">
+        <div class="y">2023</div><div class="t">Failed Attempt to Do Something Good</div><div class="f">Single</div></a>
+      <a class="rel" href="https://open.spotify.com/artist/00cH3oVJcHmZCkj8xq1Cs2" target="_blank" rel="noopener">
+        <div class="y">2023</div><div class="t">Ghost Town</div><div class="f">Single</div></a>
+      <a class="rel" href="https://open.spotify.com/artist/00cH3oVJcHmZCkj8xq1Cs2" target="_blank" rel="noopener">
+        <div class="y">2021</div><div class="t">Dark Side</div><div class="f">EP</div></a>
+    </div>
+    <div class="links">
+      <a href="https://open.spotify.com/artist/00cH3oVJcHmZCkj8xq1Cs2" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://www.youtube.com/@morningstormband1640/videos" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://instagram.com/_morningstorm" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/morningstorm.band" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</section>
+
+<section id="live">
+  <div class="wrap">
+    <div class="eyebrow">On stage</div>
+    <h2>Selected Live</h2>
+    <p style="margin-top:14px"><b style="color:var(--amber)">Oct 29, 2026 — Blumenau/SC:</b> opening for
+      <b>RODOX</b>, the new band of Rodolfo Abrantes (ex-Raimundos) and Fernando Scherer (Worst, Pavilhão 9) —
+      one of the leading acts in Brazil's current hardcore/metal scene.</p>
+    <p class="muted">50+ shows across southern Brazil since 2015.</p>
+  </div>
+</section>
+
+<section id="lineup">
+  <div class="wrap">
+    <div class="eyebrow">Three-piece</div>
+    <h2>Lineup</h2>
+    <div class="lineup">
+      <div class="member"><div class="n">Rian Rau</div><div class="r">Vocals · Guitar</div></div>
+      <div class="member"><div class="n">Jean Claver</div><div class="r">Bass</div></div>
+      <div class="member"><div class="n">Brian Beaves</div><div class="r">Drums</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="photos">
+  <div class="wrap">
+    <div class="eyebrow">Press photos</div>
+    <h2>Photos</h2>
+    <!-- FOTOS: troque cada div.ph por <img src="fotos/nome.jpg" alt="Morning Storm — descrição"> -->
+    <div class="photos">
+      <div class="ph">Press photo 01</div>
+      <div class="ph">Press photo 02</div>
+      <div class="ph">Live photo 01</div>
+    </div>
+    <p class="muted" style="margin-top:12px;font-size:14px">High-resolution photos available on request.</p>
+  </div>
+</section>
+
+<div class="booking">
+  <div class="wrap">
+    <div class="eyebrow">European Tour · January 2027 · Dates Open</div>
+    <h2 style="margin-bottom:18px">Booking</h2>
+    <a class="mail" href="mailto:paulo@morningstorm.com.br">paulo@morningstorm.com.br</a>
+    <div class="strip" style="margin-top:22px">
+      <span>EPK</span><span class="div">//</span><span>Morning Storm</span><span class="div">//</span><span>Blumenau · Brazil</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap strip" style="justify-content:space-between">
+    <span>© Morning Storm</span>
+    <span class="muted" style="letter-spacing:.1em">Stoner Metal — since 2015</span>
+  </div>
+</footer>
+
+</body>
+</html>
