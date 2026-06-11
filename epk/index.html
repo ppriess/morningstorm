@@ -97,15 +97,23 @@ p+p{margin-top:14px}
   border:1px solid var(--line);border-radius:99px;padding:10px 20px;color:var(--ink);transition:border-color .15s}
 .links a:hover{border-color:var(--amber);color:var(--amber)}
 .booking{text-align:center;padding:70px 0 80px}
-.booking .mail{font-family:var(--display);font-size:clamp(26px,5.4vw,46px);text-transform:uppercase;
-  letter-spacing:.02em;color:var(--amber);text-decoration:none;word-break:break-all}
-.booking .mail:hover{color:var(--hot)}
+.booking .contact{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;align-items:center;
+  font-family:var(--display);font-size:clamp(17px,3.2vw,26px);text-transform:uppercase;letter-spacing:.02em}
+.booking .contact a{color:var(--amber);text-decoration:none}
+.booking .contact a:hover{color:var(--hot)}
+.booking .contact .div{color:var(--muted)}
 footer{padding:26px 0 40px;border-top:1px solid var(--line)}
 
-details{margin-top:26px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
-details summary{cursor:pointer;padding:14px 18px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--amber)}
-details .inner{padding:4px 20px 20px}
+/* ---- seletor de idioma ---- */
+.lang-switch{position:fixed;top:16px;right:16px;z-index:60;display:flex;align-items:center;gap:2px;
+  border:1px solid var(--line);padding:4px 6px;border-radius:6px;
+  background:rgba(19,17,16,.72);backdrop-filter:blur(6px)}
+.lang-switch button{background:none;border:none;cursor:pointer;font-family:var(--mono);font-size:.65rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:4px 7px;transition:color .15s;line-height:1}
+.lang-switch button.active{color:var(--amber)}
+.lang-switch button:hover:not(.active){color:var(--ink)}
+.lang-switch .sep{color:var(--line);font-size:.7rem;user-select:none}
+.hl{color:var(--amber)}
 
 /* ---- textura grunge nas seções alternadas ---- */
 section:nth-of-type(even){position:relative;background:#161310}
@@ -183,6 +191,12 @@ header .wrap{position:relative;z-index:2}
 </head>
 <body>
 
+<div class="lang-switch">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <span class="sep">/</span>
+  <button id="btn-pt" onclick="setLang('pt')">PT</button>
+</div>
+
 <!-- Filtro SVG do efeito líquido no logo (invisível, só definição) -->
 <svg width="0" height="0" style="position:absolute;pointer-events:none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -205,10 +219,11 @@ header .wrap{position:relative;z-index:2}
     <h1><span class="logo-glitch"><img class="brandmark" src="logo-transp-white.png" alt="Morning Storm"></span></h1>
     <div class="strip" style="margin-top:18px">
       <span><b>Stoner Metal</b></span><span class="div">//</span>
-      <span>Blumenau · Brazil</span><span class="div">//</span>
-      <span>Est. <b>2015</b></span>
+      <span data-en="Blumenau · Brazil" data-pt="Blumenau · Brasil">Blumenau · Brazil</span><span class="div">//</span>
+      <span data-en="Est. <b>2015</b>" data-pt="Desde <b>2015</b>">Est. <b>2015</b></span>
     </div>
-    <div class="stamp">European Tour · January 2027<small>Booking Open</small></div>
+    <div class="stamp" data-en="European Tour · January 2027<small>Booking Open</small>"
+      data-pt="Turnê Europeia · Janeiro 2027<small>Datas em aberto</small>">European Tour · January 2027<small>Booking Open</small></div>
   </div>
   <!-- VAN ANIMADA: coloque van.png na mesma pasta deste HTML -->
   <div class="vanlane"><img src="van.png" alt="" onerror="this.parentNode.remove()"></div>
@@ -216,84 +231,59 @@ header .wrap{position:relative;z-index:2}
 
 <section id="video">
   <div class="wrap">
-    <div class="eyebrow">Watch</div>
-    <h2>Fans Favorite</h2>
+    <div class="eyebrow" data-en="Watch" data-pt="Assista">Watch</div>
+    <h2 data-en="Fans Favorite" data-pt="Favorita dos Fãs">Fans Favorite</h2>
     <div class="video" style="margin-top:18px">
       <iframe src="https://www.youtube-nocookie.com/embed/YGgUEh_j6aE" title="Morning Storm — live" allowfullscreen loading="lazy"></iframe>
     </div>
-    <p class="muted" style="margin-top:12px;font-size:14px">More on
+    <p class="muted" style="margin-top:12px;font-size:14px"><span data-en="More on" data-pt="Mais no">More on</span>
       <a href="https://www.youtube.com/@morningstormband1640/videos" target="_blank" rel="noopener">YouTube</a>.</p>
   </div>
 </section>
 
 <section id="bio">
   <div class="wrap">
-    <div class="eyebrow">Press release</div>
-    <h2>The Band</h2>
+    <div class="eyebrow" data-en="Press release" data-pt="Release">Press release</div>
+    <h2 data-en="The Band" data-pt="A Banda">The Band</h2>
     <div class="bio-grid">
       <img class="bandphoto" src="band.png" alt="Morning Storm — band photo">
       <div>
-    <p>Morning Storm is a stoner metal three-piece from Blumenau, southern Brazil. The band
-      was formed in 2015, but its foundations run much deeper: between them, the members carry decades of stage
-      experience — guitars and vocals in the hands of a musician playing live since the late '80s, a bassist who
-      teaches music for a living, and a drummer whose work across multiple bands has made him one of the most
-      in-demand players in the regional scene.</p>
-    <p>That history shapes the sound. Morning Storm drinks straight from the moment genres started bleeding into
-      each other and grunge kicked the door in: stoner metal at its core, swinging between introspective passages
-      and explosive bursts, with alt metal, thrash and hardcore running through its bloodstream. The lyrics range
-      from the psychological and introspective (<em>“Dark Side”</em>, <em>“Masks”</em>) to sharp social commentary
-      (<em>“Fight for Your Life”</em>, <em>“Ghost Town”</em>, written about life on the streets) — and keep
-      expanding into new territory.</p>
-    <p>After the 2021 EP <em>Dark Side</em> and a steady run of singles and live work, 2026 is the band's biggest
-      year yet. A new EP is in production, with lead single and video <em>“Mars &amp; Venus”</em> out in July. In
-      October, Morning Storm opens for RODOX — the new band of Rodolfo Abrantes (ex-Raimundos), one of the defining
-      voices of Brazilian rock. In January 2027, Morning Storm crosses the Atlantic for its first European tour —
-      routing is underway and dates are still open for booking.</p>
+    <p data-en="Morning Storm is a stoner metal three-piece from Blumenau, southern Brazil. The band was formed in 2015, but its foundations run much deeper: between them, the members carry decades of stage experience — guitars and vocals in the hands of a musician playing live since the late '80s, a bassist who teaches music for a living, and a drummer whose work across multiple bands has made him one of the most in-demand players in the regional scene."
+       data-pt="Morning Storm é um power trio de stoner metal de Blumenau, Santa Catarina. A banda foi formada em 2015, mas suas raízes vêm de muito antes: somados, os integrantes carregam décadas de estrada — guitarra e vocal nas mãos de um músico em atividade desde o fim dos anos 80, um baixista que é professor de música e um baterista cuja passagem por diversas bandas o tornou um dos nomes mais requisitados da cena regional.">
+      Morning Storm is a stoner metal three-piece from Blumenau, southern Brazil.</p>
+    <p data-en="That history shapes the sound. Morning Storm drinks straight from the moment genres started bleeding into each other and grunge kicked the door in: stoner metal at its core, swinging between introspective passages and explosive bursts, with alt metal, thrash and hardcore running through its bloodstream. The lyrics range from the psychological and introspective (<em>“Dark Side”</em>, <em>“Masks”</em>) to sharp social commentary (<em>“Fight for Your Life”</em>, <em>“Ghost Town”</em>, written about life on the streets) — and keep expanding into new territory."
+       data-pt="Essa bagagem molda o som. Morning Storm bebe direto da época em que os gêneros começaram a se misturar e o grunge arrombou a porta: stoner metal na essência, alternando entre passagens introspectivas e explosões de peso, com alt metal, thrash e hardcore correndo nas veias. As letras vão do psicológico e introspectivo (<em>“Dark Side”</em>, <em>“Masks”</em>) à crítica social afiada (<em>“Fight for Your Life”</em>, <em>“Ghost Town”</em>, sobre a população em situação de rua) — e seguem abrindo novos caminhos.">
+      That history shapes the sound.</p>
+    <p data-en="After the 2021 EP <em>Dark Side</em> and a steady run of singles and live work, 2026 is the band's biggest year yet. A new EP is in production, with lead single and video <em>“Mars &amp; Venus”</em> out in July. In October, Morning Storm opens for RODOX — the new band of Rodolfo Abrantes (ex-Raimundos), one of the defining voices of Brazilian rock. In January 2027, Morning Storm crosses the Atlantic for its first European tour — routing is underway and dates are still open for booking."
+       data-pt="Depois do EP <em>Dark Side</em> (2021) e de uma sequência constante de singles e shows, 2026 é o maior ano da história da banda. Um novo EP está em produção, com o single e clipe <em>“Mars &amp; Venus”</em> chegando em julho. Em outubro, a Morning Storm abre para o RODOX, a nova banda de Rodolfo Abrantes. E em janeiro de 2027, a banda cruza o Atlântico para sua primeira turnê europeia — o roteiro está em construção e há datas em aberto.">
+      After the 2021 EP <em>Dark Side</em>…</p>
       </div>
     </div>
     <div class="strip" style="justify-content:flex-start;margin-top:26px">
-      <span>Est. <b>2015</b></span><span class="div">//</span>
+      <span data-en="Est. <b>2015</b>" data-pt="Desde <b>2015</b>">Est. <b>2015</b></span><span class="div">//</span>
       <span><b>50+</b> shows</span><span class="div">//</span>
-      <span><b>4</b> releases</span><span class="div">//</span>
-      <span>New EP <b>2026</b></span>
+      <span data-en="<b>4</b> releases" data-pt="<b>4</b> lançamentos"><b>4</b> releases</span><span class="div">//</span>
+      <span data-en="New EP <b>2026</b>" data-pt="Novo EP <b>2026</b>">New EP <b>2026</b></span>
     </div>
-
-    <details>
-      <summary>Versão em português</summary>
-      <div class="inner">
-        <p>Morning Storm é um power trio de stoner metal de Blumenau, Santa Catarina. A banda foi formada em 2015,
-          mas suas raízes vêm de muito antes: somados, os integrantes carregam décadas de estrada — guitarra e
-          vocal nas mãos de um músico em atividade desde o fim dos anos 80, um baixista que é professor de música
-          e um baterista cuja passagem por diversas bandas o tornou um dos nomes mais requisitados da cena regional.</p>
-        <p style="margin-top:12px">Essa bagagem molda o som. Morning Storm bebe direto da época em que os gêneros
-          começaram a se misturar e o grunge arrombou a porta: stoner metal na essência, alternando entre passagens
-          introspectivas e explosões de peso, com alt metal, thrash e hardcore correndo nas veias. As letras vão do
-          psicológico e introspectivo (<em>“Dark Side”</em>, <em>“Masks”</em>) à crítica social afiada
-          (<em>“Fight for Your Life”</em>, <em>“Ghost Town”</em>, sobre a população em situação de rua) — e seguem
-          abrindo novos caminhos.</p>
-        <p style="margin-top:12px">Depois do EP <em>Dark Side</em> (2021) e de uma sequência constante de singles e
-          shows, 2026 é o maior ano da história da banda. Um novo EP está em produção, com o single e clipe
-          <em>“Mars &amp; Venus”</em> chegando em julho. Em outubro, a Morning Storm abre para o RODOX, a nova banda
-          de Rodolfo Abrantes. E em janeiro de 2027, a banda cruza o Atlântico para sua primeira turnê europeia — o
-          roteiro está em construção e há datas em aberto.</p>
-      </div>
-    </details>
   </div>
 </section>
 
 <section id="ep">
   <div class="wrap">
-    <div class="eyebrow">New music</div>
-    <h2>Next Up</h2>
+    <div class="eyebrow" data-en="New music" data-pt="Música nova">New music</div>
+    <h2 data-en="Next Up" data-pt="Vem Aí">Next Up</h2>
     <div class="callout">
       <img class="cover" src="covers/mars-and-venus.png" alt="Mars &amp; Venus — single cover art">
       <div class="body">
         <div class="strip" style="justify-content:flex-start;margin-bottom:8px">
-          <span>Single + video</span><span class="div">//</span><span><b>July 2026</b></span>
+          <span data-en="Single + video" data-pt="Single + clipe">Single + video</span><span class="div">//</span>
+          <span data-en="<b>July 2026</b>" data-pt="<b>Julho 2026</b>"><b>July 2026</b></span>
         </div>
         <div class="t">“Mars &amp; Venus”</div>
-        <p style="margin-top:10px">Lead single from the upcoming EP, currently in recording — the record Morning
-          Storm brings to Europe in January 2027.</p>
+        <p style="margin-top:10px"
+          data-en="Lead single from the upcoming EP, currently in recording — the record Morning Storm brings to Europe in January 2027."
+          data-pt="Single de trabalho do novo EP, em gravação — o disco que a Morning Storm leva para a Europa em janeiro de 2027.">
+          Lead single from the upcoming EP.</p>
       </div>
     </div>
   </div>
@@ -301,8 +291,8 @@ header .wrap{position:relative;z-index:2}
 
 <section id="discography">
   <div class="wrap">
-    <div class="eyebrow">Listen</div>
-    <h2>Discography</h2>
+    <div class="eyebrow" data-en="Listen" data-pt="Ouça">Listen</div>
+    <h2 data-en="Discography" data-pt="Discografia">Discography</h2>
     <div class="disco">
       <a class="rel" href="https://open.spotify.com/artist/00cH3oVJcHmZCkj8xq1Cs2" target="_blank" rel="noopener">
         <img class="cover" src="covers/fight-for-your-life.jpg" alt="Fight for Your Life — cover art" loading="lazy">
@@ -328,48 +318,58 @@ header .wrap{position:relative;z-index:2}
 
 <section id="live">
   <div class="wrap">
-    <div class="eyebrow">On stage</div>
-    <h2>Selected Live</h2>
-    <p style="margin-top:14px"><b style="color:var(--amber)">Oct 29, 2026 — Blumenau/SC:</b> opening for
-      <b>RODOX</b>, the new band of Rodolfo Abrantes (ex-Raimundos) and Fernando Scherer (Worst, Pavilhão 9) —
-      one of the leading acts in Brazil's current hardcore/metal scene.</p>
-    <p class="muted">50+ shows across southern Brazil since 2015.</p>
+    <div class="eyebrow" data-en="On stage" data-pt="No palco">On stage</div>
+    <h2 data-en="Selected Live" data-pt="Shows em Destaque">Selected Live</h2>
+    <p style="margin-top:14px"
+      data-en="<b class=hl>Oct 29, 2026 — Blumenau/SC:</b> opening for <b>RODOX</b>, the new band of Rodolfo Abrantes (ex-Raimundos) and Fernando Scherer (Worst, Pavilhão 9) — one of the leading acts in Brazil's current hardcore/metal scene."
+      data-pt="<b class=hl>29 out 2026 — Blumenau/SC:</b> abrindo para o <b>RODOX</b>, a nova banda de Rodolfo Abrantes (ex-Raimundos) e Fernando Scherer (Worst, Pavilhão 9) — um dos principais nomes da cena hardcore/metal brasileira atual.">
+      <b class=hl>Oct 29, 2026 — Blumenau/SC:</b> opening for <b>RODOX</b>.</p>
+    <p class="muted" data-en="50+ shows across southern Brazil since 2015."
+      data-pt="Mais de 50 shows pelo sul do Brasil desde 2015.">50+ shows across southern Brazil since 2015.</p>
   </div>
 </section>
 
 <section id="lineup">
   <div class="wrap">
-    <div class="eyebrow">Three-piece</div>
-    <h2>Lineup</h2>
+    <div class="eyebrow" data-en="Three-piece" data-pt="Power trio">Three-piece</div>
+    <h2 data-en="Lineup" data-pt="Formação">Lineup</h2>
     <div class="lineup">
-      <div class="member"><div class="n">Rian Rau</div><div class="r">Vocals · Guitar</div></div>
-      <div class="member"><div class="n">Jean Claver</div><div class="r">Bass</div></div>
-      <div class="member"><div class="n">Brian Beaves</div><div class="r">Drums</div></div>
+      <div class="member"><div class="n">Rian Rau</div><div class="r" data-en="Vocals · Guitar" data-pt="Vocal · Guitarra">Vocals · Guitar</div></div>
+      <div class="member"><div class="n">Jean Claver</div><div class="r" data-en="Bass" data-pt="Baixo">Bass</div></div>
+      <div class="member"><div class="n">Brian Beaves</div><div class="r" data-en="Drums" data-pt="Bateria">Drums</div></div>
     </div>
   </div>
 </section>
 
 <section id="photos">
   <div class="wrap">
-    <div class="eyebrow">Press photos</div>
-    <h2>Photos</h2>
+    <div class="eyebrow" data-en="Press photos" data-pt="Fotos de divulgação">Press photos</div>
+    <h2 data-en="Photos" data-pt="Fotos">Photos</h2>
     <!-- FOTOS: troque cada div.ph por <img src="fotos/nome.jpg" alt="Morning Storm — descrição"> -->
     <div class="photos">
-      <div class="ph">Press photo 01</div>
-      <div class="ph">Press photo 02</div>
-      <div class="ph">Live photo 01</div>
+      <div class="ph" data-en="Press photo 01" data-pt="Foto de divulgação 01">Press photo 01</div>
+      <div class="ph" data-en="Press photo 02" data-pt="Foto de divulgação 02">Press photo 02</div>
+      <div class="ph" data-en="Live photo 01" data-pt="Foto ao vivo 01">Live photo 01</div>
     </div>
-    <p class="muted" style="margin-top:12px;font-size:14px">High-resolution photos available on request.</p>
+    <p class="muted" style="margin-top:12px;font-size:14px"
+      data-en="High-resolution photos available on request."
+      data-pt="Fotos em alta resolução disponíveis sob pedido.">High-resolution photos available on request.</p>
   </div>
 </section>
 
 <div class="booking">
   <div class="wrap">
-    <div class="eyebrow">European Tour · January 2027 · Dates Open</div>
+    <div class="eyebrow" data-en="European Tour · January 2027 · Dates Open"
+      data-pt="Turnê Europeia · Janeiro 2027 · Datas em Aberto">European Tour · January 2027 · Dates Open</div>
     <h2 style="margin-bottom:18px">Booking</h2>
-    <a class="mail" href="mailto:paulo@morningstorm.com.br">paulo@morningstorm.com.br</a>
+    <div class="contact">
+      <a href="mailto:paulo@morningstorm.com.br">paulo@morningstorm.com.br</a>
+      <span class="div">|</span>
+      <a href="https://wa.me/5547997208831" target="_blank" rel="noopener">WhatsApp: +55 47 99720-8831</a>
+    </div>
     <div class="strip" style="margin-top:22px">
-      <span>EPK</span><span class="div">//</span><span>Morning Storm</span><span class="div">//</span><span>Blumenau · Brazil</span>
+      <span>EPK</span><span class="div">//</span><span>Morning Storm</span><span class="div">//</span>
+      <span data-en="Blumenau · Brazil" data-pt="Blumenau · Brasil">Blumenau · Brazil</span>
     </div>
   </div>
 </div>
@@ -377,9 +377,26 @@ header .wrap{position:relative;z-index:2}
 <footer>
   <div class="wrap strip" style="justify-content:space-between">
     <span>© Morning Storm</span>
-    <span class="muted" style="letter-spacing:.1em">Stoner Metal — since 2015</span>
+    <span class="muted" style="letter-spacing:.1em" data-en="Stoner Metal — since 2015"
+      data-pt="Stoner Metal — desde 2015">Stoner Metal — since 2015</span>
   </div>
 </footer>
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = el.dataset[lang];
+  });
+  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+  document.title = lang === 'pt' ? 'MORNING STORM — EPK · Press Kit Eletrônico' : 'MORNING STORM — EPK · Electronic Press Kit';
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setLang(navigator.language.toLowerCase().startsWith('pt') ? 'pt' : 'en');
+});
+</script>
 
 </body>
 </html>
