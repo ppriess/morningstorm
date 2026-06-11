@@ -57,13 +57,18 @@ p+p{margin-top:14px}
 .rel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px 16px;text-decoration:none;color:var(--ink);
   transition:border-color .15s}
 .rel:hover{border-color:var(--amber)}
+.rel .cover{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:6px;border:1px solid var(--line);
+  display:block;margin-bottom:12px}
 .rel .y{font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:.12em}
 .rel .t{font-family:var(--display);font-size:19px;letter-spacing:.03em;text-transform:uppercase;line-height:1.15;margin:6px 0 4px}
 .rel .f{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
 
 /* ---- destaque EP novo ---- */
 .callout{background:linear-gradient(120deg,rgba(245,166,35,.10),rgba(255,122,61,.05));border:1px solid var(--amber);
-  border-radius:10px;padding:26px 28px;margin-top:24px}
+  border-radius:10px;padding:26px 28px;margin-top:24px;display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.callout .cover{width:200px;max-width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px;
+  border:1px solid var(--line);flex-shrink:0}
+.callout .body{flex:1;min-width:240px}
 .callout .t{font-family:var(--display);font-size:26px;text-transform:uppercase;letter-spacing:.03em;color:var(--amber)}
 
 /* ---- lineup ---- */
@@ -71,6 +76,13 @@ p+p{margin-top:14px}
 .member{border-left:3px solid var(--amber);padding:4px 0 4px 16px}
 .member .n{font-family:var(--display);font-size:20px;text-transform:uppercase;letter-spacing:.03em}
 .member .r{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+
+/* ---- bio com foto ---- */
+.bio-grid{display:grid;grid-template-columns:300px 1fr;gap:32px;margin-top:18px;align-items:start}
+.bio-grid .bandphoto{width:100%;border-radius:8px;border:1px solid var(--line);display:block;
+  filter:saturate(.95);box-shadow:0 12px 32px rgba(0,0,0,.45)}
+.bio-grid p:first-child{margin-top:0}
+@media (max-width:720px){.bio-grid{grid-template-columns:1fr}.bio-grid .bandphoto{max-width:380px;margin:0 auto}}
 
 /* ---- fotos ---- */
 .photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:22px}
@@ -218,7 +230,10 @@ header .wrap{position:relative;z-index:2}
   <div class="wrap">
     <div class="eyebrow">Press release</div>
     <h2>The Band</h2>
-    <p style="margin-top:14px">Morning Storm is a stoner metal three-piece from Blumenau, southern Brazil. The band
+    <div class="bio-grid">
+      <img class="bandphoto" src="band.png" alt="Morning Storm — band photo">
+      <div>
+    <p>Morning Storm is a stoner metal three-piece from Blumenau, southern Brazil. The band
       was formed in 2015, but its foundations run much deeper: between them, the members carry decades of stage
       experience — guitars and vocals in the hands of a musician playing live since the late '80s, a bassist who
       teaches music for a living, and a drummer whose work across multiple bands has made him one of the most
@@ -234,6 +249,8 @@ header .wrap{position:relative;z-index:2}
       October, Morning Storm opens for RODOX — the new band of Rodolfo Abrantes (ex-Raimundos), one of the defining
       voices of Brazilian rock. In January 2027, Morning Storm crosses the Atlantic for its first European tour —
       routing is underway and dates are still open for booking.</p>
+      </div>
+    </div>
     <div class="strip" style="justify-content:flex-start;margin-top:26px">
       <span>Est. <b>2015</b></span><span class="div">//</span>
       <span><b>50+</b> shows</span><span class="div">//</span>
@@ -269,12 +286,15 @@ header .wrap{position:relative;z-index:2}
     <div class="eyebrow">New music</div>
     <h2>Next Up</h2>
     <div class="callout">
-      <div class="strip" style="justify-content:flex-start;margin-bottom:8px">
-        <span>Single + video</span><span class="div">//</span><span><b>July 2026</b></span>
+      <img class="cover" src="covers/mars-and-venus.png" alt="Mars &amp; Venus — single cover art">
+      <div class="body">
+        <div class="strip" style="justify-content:flex-start;margin-bottom:8px">
+          <span>Single + video</span><span class="div">//</span><span><b>July 2026</b></span>
+        </div>
+        <div class="t">“Mars &amp; Venus”</div>
+        <p style="margin-top:10px">Lead single from the upcoming EP, currently in recording — the record Morning
+          Storm brings to Europe in January 2027.</p>
       </div>
-      <div class="t">“Mars &amp; Venus”</div>
-      <p style="margin-top:10px">Lead single from the upcoming EP, currently in recording — the record Morning
-        Storm brings to Europe in January 2027.</p>
     </div>
   </div>
 </section>
@@ -285,12 +305,16 @@ header .wrap{position:relative;z-index:2}
     <h2>Discography</h2>
     <div class="disco">
       <a class="rel" href="https://open.spotify.com/artist/00cH3oVJcHmZCkj8xq1Cs2" target="_blank" rel="noopener">
+        <img class="cover" src="covers/fight-for-your-life.jpg" alt="Fight for Your Life — cover art" loading="lazy">
         <div class="y">2024</div><div class="t">Fight for Your Life</div><div class="f">Single</div></a>
       <a class="rel" href="https://open.spotify.com/artist/00cH3oVJcHmZCkj8xq1Cs2" target="_blank" rel="noopener">
+        <img class="cover" src="covers/failed-attempt.jpg" alt="Failed Attempt to Do Something Good — cover art" loading="lazy">
         <div class="y">2023</div><div class="t">Failed Attempt to Do Something Good</div><div class="f">Single</div></a>
       <a class="rel" href="https://open.spotify.com/artist/00cH3oVJcHmZCkj8xq1Cs2" target="_blank" rel="noopener">
+        <img class="cover" src="covers/ghost-town.jpg" alt="Ghost Town — cover art" loading="lazy">
         <div class="y">2023</div><div class="t">Ghost Town</div><div class="f">Single</div></a>
       <a class="rel" href="https://open.spotify.com/artist/00cH3oVJcHmZCkj8xq1Cs2" target="_blank" rel="noopener">
+        <img class="cover" src="covers/dark-side.jpg" alt="Dark Side — EP cover art" loading="lazy">
         <div class="y">2021</div><div class="t">Dark Side</div><div class="f">EP</div></a>
     </div>
     <div class="links">
