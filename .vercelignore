@@ -1,0 +1,11 @@
+public
+posters-tours
+epk/files
+epk/files.zip
+epk/effect.html
+epk/effect.txt
+epk/logo-grande.jpg
+*.psd
+*:Zone.Identifier
+.gitignore
+CLAUDE.md

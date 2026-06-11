@@ -474,6 +474,10 @@ function setLang(lang) {
   ['btn-en','btn-en-m'].forEach(id => { const b = document.getElementById(id); if(b) b.classList.toggle('active', lang === 'en'); });
   ['btn-pt','btn-pt-m'].forEach(id => { const b = document.getElementById(id); if(b) b.classList.toggle('active', lang === 'pt'); });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  setLang(navigator.language.toLowerCase().startsWith('pt') ? 'pt' : 'en');
+});
 </script>
 
 </body>
