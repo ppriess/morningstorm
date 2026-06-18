@@ -37,6 +37,9 @@ h1 span{color:var(--amber)}
   font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:.18em;text-transform:uppercase;
   transform:rotate(-2.5deg);border-radius:4px}
 .stamp small{display:block;font-size:10.5px;letter-spacing:.22em;color:var(--amber);margin-top:4px}
+.header-top{display:flex;gap:28px;align-items:flex-start;justify-content:center;margin-top:20px}
+.header-text{display:flex;flex-direction:column;align-items:center;gap:12px}
+.header-text .stamp{margin:0}
 
 /* ---- seções ---- */
 section{padding:54px 0;border-bottom:1px solid var(--line)}
@@ -85,11 +88,14 @@ p+p{margin-top:14px}
 @media (max-width:720px){.bio-grid{grid-template-columns:1fr}.bio-grid .bandphoto{max-width:380px;margin:0 auto}}
 
 /* ---- fotos ---- */
-.photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:22px}
+.photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:22px;align-items:start}
 .photos .ph{aspect-ratio:3/2;background:var(--panel);border:1px dashed var(--line);border-radius:8px;
   display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;
   letter-spacing:.15em;color:var(--muted);text-transform:uppercase}
-.photos img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+.photos a{display:block;border-radius:8px;transition:opacity .2s ease}
+.photos a:hover{opacity:.85}
+.photos img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--line)}
+.photos img.crop{height:auto;aspect-ratio:600/771;object-fit:cover}
 
 /* ---- links / booking ---- */
 .links{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
@@ -129,6 +135,10 @@ section:nth-of-type(even) .wrap{position:relative;z-index:1}
 /* ---- vídeo de fundo do hero ---- */
 header{position:relative;overflow:hidden}
 .herovid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.38;filter:saturate(.9)}
+/* imagem da banda: largura do conteúdo, logo acima do vídeo de fundo */
+.bandheader{position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:min(880px,calc(100% - 44px));height:100%;object-fit:cover;z-index:0;pointer-events:none;
+  mix-blend-mode:multiply}
 header::after{content:'';position:absolute;inset:0;z-index:1;
   background:linear-gradient(180deg,rgba(19,17,16,.55),rgba(19,17,16,.35) 45%,var(--bg) 96%)}
 header .wrap{position:relative;z-index:2}
@@ -215,15 +225,20 @@ header .wrap{position:relative;z-index:2}
   <video class="herovid" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
     <source src="hero.mp4" type="video/mp4">
   </video>
+  <img class="bandheader" src="banda-header-01.png" alt="" aria-hidden="true">
   <div class="wrap">
-    <h1><span class="logo-glitch"><img class="brandmark" src="logo-transp-white.png" alt="Morning Storm"></span></h1>
-    <div class="strip" style="margin-top:18px">
-      <span><b>Stoner Metal</b></span><span class="div">//</span>
-      <span data-en="Blumenau · Brazil" data-pt="Blumenau · Brasil">Blumenau · Brazil</span><span class="div">//</span>
-      <span data-en="Est. <b>2015</b>" data-pt="Desde <b>2015</b>">Est. <b>2015</b></span>
+    <div class="header-top">
+      <h1><span class="logo-glitch"><img class="brandmark" src="logo-transp-white.png" alt="Morning Storm"></span></h1>
+      <div class="header-text">
+        <div class="strip">
+          <span><b>Stoner Metal</b></span><span class="div">//</span>
+          <span data-en="Blumenau · Brazil" data-pt="Blumenau · Brasil">Blumenau · Brazil</span><span class="div">//</span>
+          <span data-en="Est. <b>2015</b>" data-pt="Desde <b>2015</b>">Est. <b>2015</b></span>
+        </div>
+        <div class="stamp" data-en="European Tour · January 2027<small>Booking Open</small>"
+          data-pt="Turnê Europeia · Janeiro 2027<small>Datas em aberto</small>">European Tour · January 2027<small>Booking Open</small></div>
+      </div>
     </div>
-    <div class="stamp" data-en="European Tour · January 2027<small>Booking Open</small>"
-      data-pt="Turnê Europeia · Janeiro 2027<small>Datas em aberto</small>">European Tour · January 2027<small>Booking Open</small></div>
   </div>
   <!-- VAN ANIMADA: coloque van.png na mesma pasta deste HTML -->
   <div class="vanlane"><img src="van.png" alt="" onerror="this.parentNode.remove()"></div>
@@ -299,7 +314,7 @@ header .wrap{position:relative;z-index:2}
         <div class="y">2024</div><div class="t">Fight for Your Life</div><div class="f">Single</div></a>
       <a class="rel" href="https://open.spotify.com/artist/00cH3oVJcHmZCkj8xq1Cs2" target="_blank" rel="noopener">
         <img class="cover" src="covers/failed-attempt.jpg" alt="Failed Attempt to Do Something Good — cover art" loading="lazy">
-        <div class="y">2023</div><div class="t">Failed Attempt to Do Something Good</div><div class="f">Single</div></a>
+        <div class="y">2023</div><div class="t">Failed Attempt to Do Something Good</div><div class="f">EP</div></a>
       <a class="rel" href="https://open.spotify.com/artist/00cH3oVJcHmZCkj8xq1Cs2" target="_blank" rel="noopener">
         <img class="cover" src="covers/ghost-town.jpg" alt="Ghost Town — cover art" loading="lazy">
         <div class="y">2023</div><div class="t">Ghost Town</div><div class="f">Single</div></a>
@@ -343,17 +358,20 @@ header .wrap{position:relative;z-index:2}
 
 <section id="photos">
   <div class="wrap">
-    <div class="eyebrow" data-en="Press photos" data-pt="Fotos de divulgação">Press photos</div>
-    <h2 data-en="Photos" data-pt="Fotos">Photos</h2>
+    <div class="eyebrow" data-en="Photos &amp; logos" data-pt="Fotos &amp; logos">Photos &amp; logos</div>
+    <h2 data-en="Official promotional images" data-pt="Imagens oficiais de divulgação">Official promotional images</h2>
     <!-- FOTOS: troque cada div.ph por <img src="fotos/nome.jpg" alt="Morning Storm — descrição"> -->
     <div class="photos">
-      <div class="ph" data-en="Press photo 01" data-pt="Foto de divulgação 01">Press photo 01</div>
-      <div class="ph" data-en="Press photo 02" data-pt="Foto de divulgação 02">Press photo 02</div>
-      <div class="ph" data-en="Live photo 01" data-pt="Foto ao vivo 01">Live photo 01</div>
+      <a href="morning-storm-vertical-01.jpeg" target="_blank" rel="noopener">
+        <img class="crop" src="morning-storm-vertical-01-low.jpg" alt="Morning Storm — press photo (vertical)" loading="lazy"></a>
+      <a href="morning-storm-horizontal-01.jpg" target="_blank" rel="noopener">
+        <img src="morning-storm-horizontal-01-low.jpg" alt="Morning Storm — press photo (horizontal)" loading="lazy"></a>
+      <a href="morning-storm-logos.zip" download>
+        <img src="morning-storm-logos-zip-download.jpg" alt="Morning Storm — logos (ZIP download)" loading="lazy"></a>
     </div>
     <p class="muted" style="margin-top:12px;font-size:14px"
-      data-en="High-resolution photos available on request."
-      data-pt="Fotos em alta resolução disponíveis sob pedido.">High-resolution photos available on request.</p>
+      data-en="Click to download high-res images and logos kit."
+      data-pt="Clique para baixar imagens em alta resolução e o kit de logos.">Click to download high-res images and logos kit.</p>
   </div>
 </section>
 
