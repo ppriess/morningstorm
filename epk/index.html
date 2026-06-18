@@ -96,6 +96,8 @@ p+p{margin-top:14px}
 .photos a:hover{opacity:.85}
 .photos img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--line)}
 .photos img.crop{height:auto;aspect-ratio:600/771;object-fit:cover}
+.gigs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:22px}
+.gigs img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--line)}
 
 /* ---- links / booking ---- */
 .links{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
@@ -225,7 +227,7 @@ header .wrap{position:relative;z-index:2}
   <video class="herovid" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
     <source src="hero.mp4" type="video/mp4">
   </video>
-  <img class="bandheader" src="banda-header-01.png" alt="" aria-hidden="true">
+  <!-- <img class="bandheader" src="banda-header-01.png" alt="" aria-hidden="true"> -->
   <div class="wrap">
     <div class="header-top">
       <h1><span class="logo-glitch"><img class="brandmark" src="logo-transp-white.png" alt="Morning Storm"></span></h1>
@@ -241,7 +243,7 @@ header .wrap{position:relative;z-index:2}
     </div>
   </div>
   <!-- VAN ANIMADA: coloque van.png na mesma pasta deste HTML -->
-  <div class="vanlane"><img src="van.png" alt="" onerror="this.parentNode.remove()"></div>
+  <!-- <div class="vanlane"><img src="van.png" alt="" onerror="this.parentNode.remove()"></div> -->
 </header>
 
 <section id="video">
@@ -334,7 +336,12 @@ header .wrap{position:relative;z-index:2}
 <section id="live">
   <div class="wrap">
     <div class="eyebrow" data-en="On stage" data-pt="No palco">On stage</div>
-    <h2 data-en="Selected Live" data-pt="Shows em Destaque">Selected Live</h2>
+    <h2 data-en="2026 dates" data-pt="Datas 2026">2026 dates</h2>
+    <div class="gigs">
+      <img src="gig-28jun.png" alt="Morning Storm — gig poster, June 28">
+      <img src="gig-11jul.png" alt="Morning Storm — gig poster, July 11">
+      <img src="gig-29out.jpg" alt="Morning Storm — gig poster, October 29">
+    </div>
     <p style="margin-top:14px"
       data-en="<b class=hl>Oct 29, 2026 — Blumenau/SC:</b> opening for <b>RODOX</b>, the new band of Rodolfo Abrantes (ex-Raimundos) and Fernando Scherer (Worst, Pavilhão 9) — one of the leading acts in Brazil's current hardcore/metal scene."
       data-pt="<b class=hl>29 out 2026 — Blumenau/SC:</b> abrindo para o <b>RODOX</b>, a nova banda de Rodolfo Abrantes (ex-Raimundos) e Fernando Scherer (Worst, Pavilhão 9) — um dos principais nomes da cena hardcore/metal brasileira atual.">
