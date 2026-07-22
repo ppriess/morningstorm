@@ -417,7 +417,11 @@ function setLang(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  setLang(navigator.language.toLowerCase().startsWith('pt') ? 'pt' : 'en');
+  const qsLang = new URLSearchParams(location.search).get('l');
+  const lang = (qsLang === 'pt' || qsLang === 'en')
+    ? qsLang
+    : (navigator.language.toLowerCase().startsWith('pt') ? 'pt' : 'en');
+  setLang(lang);
 });
 </script>
 
