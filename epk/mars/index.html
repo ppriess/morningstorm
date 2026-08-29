@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MORNING STORM — Mars and Venus · Single EPK</title>
+<meta name="description" content="Mars and Venus — new single and video by Morning Storm, stoner / sludge metal power trio from Blumenau, Brazil. Out September 1, 2026. Press assets, credits and booking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#131110; --panel:#1b1815; --line:rgba(245,166,35,.16);
+  --ink:#ece6dd; --muted:#9a907f;
+  --amber:#f5a623; --hot:#ff7a3d;
+  --display:'Anton',sans-serif; --body:'DM Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.65;
+  background-image:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(245,166,35,.06),transparent)}
+a{color:var(--amber)}
+.wrap{max-width:880px;margin:0 auto;padding:0 22px}
+
+/* ---- tiras de dados (assinatura: estética de datesheet) ---- */
+.strip{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  display:flex;gap:14px;flex-wrap:wrap;justify-content:center;align-items:center}
+.strip b{color:var(--amber);font-weight:700}
+.strip .div{color:var(--amber);opacity:.5}
+
+/* ---- hero ---- */
+header{padding:60px 0 46px;text-align:center;border-bottom:1px solid var(--line)}
+h1{font-family:var(--display);font-size:clamp(46px,9.2vw,92px);line-height:.92;letter-spacing:.01em;
+  text-transform:uppercase;color:var(--ink)}
+h1 span{color:var(--amber)}
+.stamp{display:inline-block;margin:22px 0 6px;padding:12px 26px;border:3px solid var(--hot);color:var(--hot);
+  font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:.18em;text-transform:uppercase;
+  transform:rotate(-2.5deg);border-radius:4px}
+.stamp small{display:block;font-size:10.5px;letter-spacing:.22em;color:var(--amber);margin-top:4px}
+
+/* ---- hero do single: capa + dados ---- */
+.brandlink{display:inline-block;margin-bottom:30px}
+.single-hero{display:grid;grid-template-columns:280px 1fr;gap:34px;align-items:center;text-align:left;margin-top:6px}
+.single-cover{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px;border:1px solid var(--amber);
+  box-shadow:0 18px 46px rgba(0,0,0,.6)}
+.single-hero .strip{justify-content:flex-start}
+.single-hero h1{margin:12px 0 0}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+@media (max-width:720px){
+  .single-hero{grid-template-columns:1fr;text-align:center;gap:24px}
+  .single-cover{max-width:300px;margin:0 auto}
+  .single-hero .strip,.hero-cta{justify-content:center}
+}
+
+/* ---- botões ---- */
+.cta{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  text-decoration:none;border-radius:99px;padding:13px 24px;display:inline-block;transition:.15s}
+.cta.solid{background:var(--amber);color:#131110;border:1px solid var(--amber)}
+.cta.solid:hover{background:var(--hot);border-color:var(--hot)}
+.cta.ghost{border:1px solid var(--line);color:var(--ink)}
+.cta.ghost:hover{border-color:var(--amber);color:var(--amber)}
+
+/* ---- seções ---- */
+section{padding:54px 0;border-bottom:1px solid var(--line)}
+h2{font-family:var(--display);font-size:30px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+h3{font-family:var(--display);font-size:20px;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--amber);margin:32px 0 8px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:6px}
+p{max-width:64ch;color:var(--ink)}
+p+p{margin-top:14px}
+.muted{color:var(--muted)}
+.hl{color:var(--amber)}
+
+/* ---- vídeo ---- */
+.video{position:relative;width:100%;aspect-ratio:16/9;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* ---- press assets ---- */
+.assets{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:22px}
+.asset{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px 18px 16px;
+  text-decoration:none;color:var(--ink);display:block;transition:border-color .15s}
+.asset:hover{border-color:var(--amber)}
+.asset .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber)}
+.asset .l{font-family:var(--display);font-size:18px;letter-spacing:.03em;text-transform:uppercase;line-height:1.2;margin:6px 0 4px}
+.asset .h{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* ---- créditos ---- */
+.credits{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:20px}
+@media (max-width:720px){.credits{grid-template-columns:1fr;gap:26px}}
+.credits dl{font-family:var(--mono);font-size:12.5px;line-height:1.5}
+.credits dt{letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-size:10.5px;margin-top:12px}
+.credits dt:first-child{margin-top:0}
+.credits dd{color:var(--ink)}
+
+/* ---- agenda ---- */
+.dates{width:100%;border-collapse:collapse;margin-top:20px;font-family:var(--mono);font-size:13px}
+.dates th{text-align:left;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);
+  font-weight:400;padding:0 12px 10px 0;border-bottom:1px solid var(--line)}
+.dates td{padding:13px 12px 13px 0;border-bottom:1px solid var(--line);vertical-align:baseline}
+.dates .d{color:var(--amber);white-space:nowrap}
+.dates .v{font-family:var(--body);font-size:15.5px;color:var(--ink)}
+.dates .c{color:var(--muted);text-transform:uppercase;font-size:11px;letter-spacing:.1em}
+.dates .s{font-size:10px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.dates .s.ok{color:var(--ink)}
+.dates .s.tbc{color:var(--muted)}
+@media (max-width:640px){
+  .dates,.dates tbody,.dates tr,.dates td{display:block;width:100%}
+  .dates thead{display:none}
+  .dates td{border:0;padding:2px 0}
+  .dates tr{border-bottom:1px solid var(--line);padding:14px 0;display:block}
+}
+
+/* ---- próximos passos ---- */
+.next{list-style:none;margin-top:18px;font-family:var(--mono);font-size:12.5px;letter-spacing:.04em}
+.next li{padding:9px 0 9px 22px;position:relative;border-bottom:1px solid var(--line);color:var(--muted)}
+.next li::before{content:'//';position:absolute;left:0;color:var(--amber);opacity:.6}
+
+/* ---- lineup ---- */
+.lineup{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:20px}
+.member{border-left:3px solid var(--amber);padding:4px 0 4px 16px}
+.member .n{font-family:var(--display);font-size:20px;text-transform:uppercase;letter-spacing:.03em}
+.member .r{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+
+/* ---- bio com foto ---- */
+.bio-grid{display:grid;grid-template-columns:300px 1fr;gap:32px;margin-top:18px;align-items:start}
+.bio-grid .bandphoto{width:100%;border-radius:8px;border:1px solid var(--line);display:block;
+  filter:saturate(.95);box-shadow:0 12px 32px rgba(0,0,0,.45)}
+.bio-grid p:first-child{margin-top:0}
+@media (max-width:720px){.bio-grid{grid-template-columns:1fr}.bio-grid .bandphoto{max-width:380px;margin:0 auto}}
+
+/* ---- letra bilíngue ---- */
+.lyrics{display:grid;grid-template-columns:1fr 1fr;gap:6px 40px;margin-top:8px}
+.lyrics .head{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--amber);padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:14px}
+.lyrics .v{font-size:15.5px;line-height:1.75;padding:10px 0;color:var(--ink)}
+.lyrics .v.pt{color:var(--muted)}
+.lyrics .v.chorus{color:var(--amber);font-weight:500}
+.lyrics .v.chorus.pt{color:var(--hot);opacity:.85;font-weight:400}
+@media (max-width:640px){
+  .lyrics{grid-template-columns:1fr;gap:0}
+  .lyrics .head.pt{display:none}
+  .lyrics .v.pt{padding-top:0;padding-bottom:18px;font-size:14px}
+}
+
+/* ---- links / booking ---- */
+.links{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.links a{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;
+  border:1px solid var(--line);border-radius:99px;padding:10px 20px;color:var(--ink);transition:border-color .15s}
+.links a:hover{border-color:var(--amber);color:var(--amber)}
+.booking{text-align:center;padding:70px 0 80px}
+.booking .contact{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;align-items:center;
+  font-family:var(--display);font-size:clamp(17px,3.2vw,26px);text-transform:uppercase;letter-spacing:.02em}
+.booking .contact a{color:var(--amber);text-decoration:none}
+.booking .contact a:hover{color:var(--hot)}
+.booking .contact .div{color:var(--muted)}
+.booking .links{justify-content:center}
+footer{padding:26px 0 40px;border-top:1px solid var(--line)}
+
+/* ---- seletor de idioma ---- */
+.lang-switch{position:fixed;top:16px;right:16px;z-index:60;display:flex;align-items:center;gap:2px;
+  border:1px solid var(--line);padding:4px 6px;border-radius:6px;
+  background:rgba(19,17,16,.72);backdrop-filter:blur(6px)}
+.lang-switch button{background:none;border:none;cursor:pointer;font-family:var(--mono);font-size:.65rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:4px 7px;transition:color .15s;line-height:1}
+.lang-switch button.active{color:var(--amber)}
+.lang-switch button:hover:not(.active){color:var(--ink)}
+.lang-switch .sep{color:var(--line);font-size:.7rem;user-select:none}
+
+/* ---- textura grunge nas seções alternadas ---- */
+section:nth-of-type(even){position:relative;background:#161310}
+section:nth-of-type(even)::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.96 0 0 0 0 0.65 0 0 0 0 0.14 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+section:nth-of-type(even)::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.35;
+  background:
+    repeating-linear-gradient(115deg,transparent 0 140px,rgba(245,166,35,.045) 140px 141px,transparent 141px 290px),
+    repeating-linear-gradient(63deg,transparent 0 220px,rgba(236,230,221,.03) 220px 221px,transparent 221px 410px);
+  mask-image:radial-gradient(120% 90% at 50% 40%,#000 55%,transparent 100%)}
+section:nth-of-type(even) .wrap{position:relative;z-index:1}
+
+/* ---- vídeo de fundo do hero ---- */
+header{position:relative;overflow:hidden}
+.herovid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.30;filter:saturate(.9)}
+header::after{content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(19,17,16,.6),rgba(19,17,16,.42) 45%,var(--bg) 96%)}
+header .wrap{position:relative;z-index:2}
+@media (prefers-reduced-motion:reduce){.herovid{display:none}}
+
+/* ---- logo + glitch ---- */
+.brandmark{width:min(220px,52vw);height:auto;display:block;position:relative;
+  filter:url(#water-ripple) drop-shadow(0 6px 24px rgba(0,0,0,.6));
+  animation:liquid-swim 8s infinite ease-in-out alternate}
+.logo-glitch{position:relative;display:inline-block}
+.logo-glitch::before,.logo-glitch::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:url('../logo-transp-white.png') no-repeat center/contain;opacity:.8;mix-blend-mode:screen}
+.logo-glitch::before{animation:glitch-anim-1 12s infinite linear alternate-reverse;
+  filter:drop-shadow(-3px -2px 0 #00ff00) hue-rotate(90deg)}
+.logo-glitch::after{animation:glitch-anim-2 12s infinite linear alternate-reverse;
+  filter:drop-shadow(3px 2px 0 #ff0000) hue-rotate(0deg)}
+@keyframes glitch-anim-1{
+  0%{clip-path:inset(40% 0 61% 0);transform:translate(-4px,-2px) skew(.3deg)}
+  5%{clip-path:inset(92% 0 1% 0);transform:translate(2px,3px) skew(-.5deg)}
+  10%{clip-path:inset(15% 0 80% 0);transform:translate(0,0) skew(0deg)}
+  60%{clip-path:inset(80% 0 5% 0);transform:translate(-2px,1px) skew(-.2deg)}
+  65%{clip-path:inset(3% 0 92% 0);transform:translate(3px,-3px) skew(.4deg)}
+  70%{clip-path:inset(60% 0 35% 0);transform:translate(0,0) skew(0deg)}
+  100%{clip-path:inset(60% 0 35% 0);transform:translate(0,0)}
+}
+@keyframes glitch-anim-2{
+  0%{clip-path:inset(25% 0 58% 0);transform:translate(3px,2px) skew(-.2deg)}
+  5%{clip-path:inset(70% 0 25% 0);transform:translate(-3px,-1px) skew(.4deg)}
+  10%{clip-path:inset(5% 0 85% 0);transform:translate(0,0) skew(0deg)}
+  65%{clip-path:inset(90% 0 2% 0);transform:translate(2px,4px) skew(.1deg)}
+  70%{clip-path:inset(33% 0 60% 0);transform:translate(-4px,-2px) skew(-.5deg)}
+  75%{clip-path:inset(12% 0 78% 0);transform:translate(0,0) skew(0deg)}
+  100%{clip-path:inset(12% 0 78% 0);transform:translate(0,0)}
+}
+@keyframes liquid-swim{
+  0%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(1px,-2px) scale(1.005)}
+  100%{transform:translate(-1px,1px) scale(.998)}
+}
+@media (prefers-reduced-motion:reduce){
+  .logo-glitch::before,.logo-glitch::after{display:none}
+  .brandmark{filter:drop-shadow(0 6px 24px rgba(0,0,0,.6))}
+}
+</style>
+</head>
+<body>
+
+<div class="lang-switch">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <span class="sep">/</span>
+  <button id="btn-pt" onclick="setLang('pt')">PT</button>
+</div>
+
+<!-- Filtro SVG do efeito líquido no logo (invisível, só definição) -->
+<svg width="0" height="0" style="position:absolute;pointer-events:none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="water-ripple">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.05" numOctaves="2" result="noise">
+        <animate attributeName="baseFrequency" dur="7s" repeatCount="indefinite"
+          values="0.02 0.05;0.028 0.065;0.022 0.045;0.02 0.05"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<header>
+  <video class="herovid" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+    <source src="../hero.mp4" type="video/mp4">
+  </video>
+  <div class="wrap">
+    <a class="brandlink" href="../" title="Morning Storm — full EPK">
+      <span class="logo-glitch"><img class="brandmark" src="../logo-transp-white.png" alt="Morning Storm"></span>
+    </a>
+    <div class="single-hero">
+      <img class="single-cover" src="../covers/mars-and-venus.png" alt="Mars and Venus — single cover art">
+      <div>
+        <div class="strip">
+          <span data-en="Single + video" data-pt="Single + clipe">Single + video</span><span class="div">//</span>
+          <span><b>Stoner / Sludge</b></span><span class="div">//</span>
+          <span data-en="Blumenau · Brazil" data-pt="Blumenau · Brasil">Blumenau · Brazil</span>
+        </div>
+        <h1>Mars <span>and</span><br>Venus</h1>
+        <div class="stamp" data-en="Out September 1, 2026<small>Morning Storm</small>"
+          data-pt="1º de setembro de 2026<small>Morning Storm</small>">Out September 1, 2026<small>Morning Storm</small></div>
+        <div class="hero-cta">
+          <a class="cta solid" href="https://youtu.be/GlJelKcHB4Y" target="_blank" rel="noopener"
+            data-en="▶ Watch the video" data-pt="▶ Assista ao clipe">▶ Watch the video</a>
+          <a class="cta ghost" href="#assets" data-en="Press assets" data-pt="Material de imprensa">Press assets</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="video">
+  <div class="wrap">
+    <div class="eyebrow" data-en="Watch" data-pt="Assista">Watch</div>
+    <h2 data-en="Official video" data-pt="Clipe oficial">Official video</h2>
+    <div class="video" style="margin-top:18px">
+      <iframe src="https://www.youtube-nocookie.com/embed/GlJelKcHB4Y" title="Morning Storm — Mars and Venus" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="muted" style="margin-top:12px;font-size:14px"
+      data-en="Direction by Rian Rau · CGI and editing by Paulo Priess · Band footage and editing by Marílio &amp; Gideão. More on <a href='https://www.youtube.com/@morningstormband1640/videos' target='_blank' rel='noopener'>YouTube</a>."
+      data-pt="Direção de Rian Rau · CGI e edição de Paulo Priess · Imagens da banda e edição de Marílio &amp; Gideão. Mais no <a href='https://www.youtube.com/@morningstormband1640/videos' target='_blank' rel='noopener'>YouTube</a>.">Direction by Rian Rau · CGI and editing by Paulo Priess.</p>
+  </div>
+</section>
+
+<section id="release">
+  <div class="wrap">
+    <div class="eyebrow" data-en="Release" data-pt="Release">Release</div>
+    <h2 data-en="About the single" data-pt="Sobre o single">About the single</h2>
+    <p data-en="<em>“Mars and Venus”</em> is a standalone single built to introduce the new lineup and the new phase of Morning Storm. It arrives on September 1, 2026, with an official video, while a new EP stays in production — the single is not part of that record."
+       data-pt="<em>“Mars and Venus”</em> é um single avulso que prioriza a divulgação da nova formação e da nova fase da Morning Storm. Chega em 1º de setembro de 2026, junto do clipe oficial, enquanto um novo EP segue em produção — o single não faz parte desse disco.">
+      <em>“Mars and Venus”</em> is a standalone single.</p>
+    <div class="strip" style="justify-content:flex-start;margin-top:24px">
+      <span data-en="Format <b>Standalone single</b>" data-pt="Formato <b>Single avulso</b>">Format <b>Standalone single</b></span><span class="div">//</span>
+      <span data-en="Release <b>Sept 1, 2026</b>" data-pt="Lançamento <b>1º set 2026</b>">Release <b>Sept 1, 2026</b></span><span class="div">//</span>
+      <span data-en="Genre <b>Stoner / sludge metal</b>" data-pt="Gênero <b>Stoner / sludge metal</b>">Genre <b>Stoner / sludge metal</b></span>
+    </div>
+
+    <h3 data-en="About the lyrics" data-pt="Sobre a letra">About the lyrics</h3>
+    <p data-en="The lyrics of <em>“Mars and Venus”</em> are about how we, as human beings, sometimes walk lost — driven by pride, by desire and by the pull of attraction. The song also deals with the dynamic between men and women, the conflicts that surface inside relationships and the dispute for power that can exist between two people."
+       data-pt="A letra de <em>“Mars and Venus”</em> fala sobre como nós, seres humanos, por vezes caminhamos perdidos, movidos pela soberba, pelo desejo e pela força da atração. A música aborda também a dinâmica entre homens e mulheres, os conflitos que surgem dentro dos relacionamentos e a disputa por poder que pode existir entre duas pessoas.">
+      The lyrics are about desire, pride and power.</p>
+    <p data-en="These ideas come through in metaphors and images tied to the planets, to alchemy and to references from ancient cultures, building a symbolic language to speak of desire, union, confrontation and dominance."
+       data-pt="Essas ideias aparecem por meio de metáforas e imagens ligadas aos astros, à alquimia e a referências de culturas antigas, criando uma linguagem simbólica para falar de desejo, união, confronto e domínio.">
+      Told through planets, alchemy and ancient imagery.</p>
+  </div>
+</section>
+
+<section id="assets">
+  <div class="wrap">
+    <div class="eyebrow" data-en="Downloads" data-pt="Downloads">Downloads</div>
+    <h2 data-en="Press assets" data-pt="Material de imprensa">Press assets</h2>
+    <div class="assets">
+      <a class="asset" href="https://drive.google.com/file/d/10ocKI-iER37IBWM1TBcfwF1vtdV0pbrY/view?usp=drive_link" target="_blank" rel="noopener">
+        <div class="k" data-en="Cover" data-pt="Capa">Cover</div>
+        <div class="l" data-en="Single artwork" data-pt="Capa do single">Single artwork</div>
+        <div class="h" data-en="High resolution · Google Drive" data-pt="Alta resolução · Google Drive">High resolution · Google Drive</div>
+      </a>
+      <a class="asset" href="https://drive.google.com/drive/folders/1NVpbyPL9UIP_oR4yWD1lsEv1_XxgGLAg?usp=sharing" target="_blank" rel="noopener">
+        <div class="k" data-en="Photos" data-pt="Fotos">Photos</div>
+        <div class="l" data-en="Official photos" data-pt="Fotos oficiais">Official photos</div>
+        <div class="h" data-en="2 horizontal · high resolution" data-pt="2 horizontais · alta resolução">2 horizontal · high resolution</div>
+      </a>
+      <a class="asset" href="https://youtu.be/GlJelKcHB4Y" target="_blank" rel="noopener">
+        <div class="k" data-en="Video" data-pt="Vídeo">Video</div>
+        <div class="l" data-en="Official video" data-pt="Videoclipe oficial">Official video</div>
+        <div class="h">YouTube · Mars and Venus</div>
+      </a>
+      <a class="asset" href="https://drive.google.com/drive/folders/1GlsIOYeqhXjv9LMJOFPLDXZDxs7AwxfW?usp=sharing" target="_blank" rel="noopener">
+        <div class="k" data-en="Audio" data-pt="Áudio">Audio</div>
+        <div class="l">MP3 320 kbps</div>
+        <div class="h" data-en="Inside the general folder" data-pt="Dentro da pasta geral">Inside the general folder</div>
+      </a>
+      <a class="asset" href="https://drive.google.com/drive/folders/1GlsIOYeqhXjv9LMJOFPLDXZDxs7AwxfW?usp=sharing" target="_blank" rel="noopener">
+        <div class="k" data-en="Everything" data-pt="Tudo">Everything</div>
+        <div class="l" data-en="General folder" data-pt="Pasta geral">General folder</div>
+        <div class="h" data-en="All files · Google Drive" data-pt="Todos os arquivos · Google Drive">All files · Google Drive</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="credits">
+  <div class="wrap">
+    <div class="eyebrow" data-en="Credits" data-pt="Ficha técnica">Credits</div>
+    <h2 data-en="Audio and video" data-pt="Áudio e vídeo">Audio and video</h2>
+    <div class="credits">
+      <div>
+        <div class="eyebrow" data-en="Audio" data-pt="Áudio">Audio</div>
+        <dl>
+          <dt data-en="Production" data-pt="Produção">Production</dt><dd>Morning Storm</dd>
+          <dt data-en="Composition" data-pt="Composição">Composition</dt><dd>Rian Rau</dd>
+          <dt data-en="Lyrics" data-pt="Letra">Lyrics</dt><dd>Paulo Priess</dd>
+          <dt data-en="Recording" data-pt="Gravação">Recording</dt><dd>Digi Studio — Blumenau/SC</dd>
+          <dt data-en="Mixing" data-pt="Mixagem">Mixing</dt><dd>Digi Studio — Blumenau/SC</dd>
+          <dt data-en="Mastering" data-pt="Masterização">Mastering</dt><dd>Digi Studio — Blumenau/SC</dd>
+        </dl>
+      </div>
+      <div>
+        <div class="eyebrow" data-en="Video" data-pt="Vídeo">Video</div>
+        <dl>
+          <dt data-en="Direction" data-pt="Direção">Direction</dt><dd>Rian Rau</dd>
+          <dt data-en="Band footage and editing" data-pt="Imagens da banda e edição">Band footage and editing</dt><dd>Marílio &amp; Gideão</dd>
+          <dt data-en="Assistant" data-pt="Assistente">Assistant</dt><dd>Carolina</dd>
+          <dt data-en="CGI and editing" data-pt="CGI e edição">CGI and editing</dt><dd>Paulo Priess</dd>
+          <dt data-en="Copyright" data-pt="Copyright">Copyright</dt><dd>© 2026 Morning Storm</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tour">
+  <div class="wrap">
+    <div class="eyebrow" data-en="On stage" data-pt="No palco">On stage</div>
+    <h2 data-en="Release tour — Mars and Venus" data-pt="Tour de lançamento — Mars and Venus">Release tour — Mars and Venus</h2>
+    <table class="dates">
+      <thead>
+        <tr>
+          <th data-en="Date" data-pt="Data">Date</th>
+          <th data-en="Venue" data-pt="Casa">Venue</th>
+          <th data-en="City" data-pt="Cidade">City</th>
+          <th data-en="Status" data-pt="Status">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="d" data-en="Sep 12, 2026" data-pt="12 set 2026">Sep 12, 2026</td>
+          <td class="v">Rock Together</td>
+          <td class="c">São Paulo/SP</td>
+          <td class="s ok" data-en="Confirmed" data-pt="Confirmado">Confirmed</td>
+        </tr>
+        <tr>
+          <td class="d" data-en="Sep 19, 2026" data-pt="19 set 2026">Sep 19, 2026</td>
+          <td class="v">Lado B</td>
+          <td class="c">Curitiba/PR</td>
+          <td class="s ok" data-en="Confirmed" data-pt="Confirmado">Confirmed</td>
+        </tr>
+        <tr>
+          <td class="d" data-en="Oct 15, 2026" data-pt="15 out 2026">Oct 15, 2026</td>
+          <td class="v">Baader</td>
+          <td class="c">Blumenau/SC</td>
+          <td class="s tbc" data-en="TBC" data-pt="A confirmar">TBC</td>
+        </tr>
+        <tr>
+          <td class="d" data-en="Oct 29, 2026" data-pt="29 out 2026">Oct 29, 2026</td>
+          <td class="v">RODOX</td>
+          <td class="c">Blumenau/SC</td>
+          <td class="s ok" data-en="Confirmed" data-pt="Confirmado">Confirmed</td>
+        </tr>
+        <tr>
+          <td class="d" data-en="Nov 6, 2026" data-pt="6 nov 2026">Nov 6, 2026</td>
+          <td class="v">Radioativo Studio</td>
+          <td class="c">Caxias do Sul/RS</td>
+          <td class="s ok" data-en="Confirmed" data-pt="Confirmado">Confirmed</td>
+        </tr>
+        <tr>
+          <td class="d" data-en="Nov 7, 2026" data-pt="7 nov 2026">Nov 7, 2026</td>
+          <td class="v">Gargula Bar</td>
+          <td class="c">Santa Maria/RS</td>
+          <td class="s ok" data-en="Confirmed" data-pt="Confirmado">Confirmed</td>
+        </tr>
+        <tr>
+          <td class="d" data-en="Nov 8, 2026" data-pt="8 nov 2026">Nov 8, 2026</td>
+          <td class="v">Caos Bar</td>
+          <td class="c">Porto Alegre/RS</td>
+          <td class="s ok" data-en="Confirmed" data-pt="Confirmado">Confirmed</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:20px;max-width:none"
+      data-en="<b class=hl>Oct 29, 2026, Blumenau/SC:</b> opening for <b>RODOX</b>, the new band of Rodolfo Abrantes (ex-Raimundos) and Fernando Scherer (Worst, Pavilhão 9), one of the leading acts in Brazil's current hardcore/metal scene."
+      data-pt="<b class=hl>29 out 2026, Blumenau/SC:</b> abrindo para o <b>RODOX</b>, a nova banda de Rodolfo Abrantes (ex-Raimundos) e Fernando Scherer (Worst, Pavilhão 9), um dos principais nomes da cena hardcore/metal brasileira atual."><b class=hl>Oct 29, 2026, Blumenau/SC:</b> opening for <b>RODOX</b>.</p>
+
+    <h3 data-en="What's next" data-pt="Próximos passos">What's next</h3>
+    <ul class="next">
+      <li data-en="Rollout of “Mars and Venus” and of the band's new lineup" data-pt="Divulgação de “Mars and Venus” e da nova formação da banda">Rollout of “Mars and Venus” and of the band's new lineup</li>
+      <li data-en="New EP in production" data-pt="Novo EP em produção">New EP in production</li>
+      <li data-en="Live dates through the second half of 2026" data-pt="Agenda de shows no segundo semestre de 2026">Live dates through the second half of 2026</li>
+      <li data-en="First European tour planned for early 2027" data-pt="Primeira turnê europeia prevista para o início de 2027">First European tour planned for early 2027</li>
+      <li data-en="European routing underway, dates still open" data-pt="Roteiro europeu em construção, com datas em aberto">European routing underway, dates still open</li>
+    </ul>
+  </div>
+</section>
+
+<section id="band">
+  <div class="wrap">
+    <div class="eyebrow" data-en="Press release" data-pt="Release">Press release</div>
+    <h2 data-en="The band" data-pt="A banda">The band</h2>
+    <div class="bio-grid">
+      <img class="bandphoto" src="../morning-storm-band.png" alt="Morning Storm — band photo" loading="lazy">
+      <div>
+        <p data-en="Morning Storm is a stoner / sludge metal power trio from Blumenau, Santa Catarina. The band was formed in 2015, but its foundations run much deeper: the members carry decades of stage experience. Rian Rau, responsible for guitars and vocals, plays live since the late '80s; Je Claver is a bassist who teaches music for a living; and Brian de Freitas is the drummer whose work across multiple bands has made him one of the most in-demand players in the regional scene."
+           data-pt="Morning Storm é um power trio de stoner / sludge metal de Blumenau, Santa Catarina. A banda foi formada em 2015, mas suas raízes vêm de muito antes: os integrantes carregam décadas de estrada. Rian Rau, responsável por guitarra e vocal, toca ao vivo desde o fim dos anos 80; Je Claver é baixista e professor de música; e Brian de Freitas é o baterista cuja passagem por diversas bandas o tornou um dos nomes mais requisitados da cena regional.">
+          Morning Storm is a stoner / sludge metal power trio from Blumenau.</p>
+        <p data-en="The band drinks straight from the moment genres started bleeding into each other in the 1990s: stoner / sludge metal at its core, with a healthy dose of grunge and alt metal, swinging between introspective passages and explosive bursts, with some thrash and hardcore also running through its bloodstream."
+           data-pt="A banda bebe direto da época em que os gêneros começaram a se misturar nos anos 1990: stoner / sludge metal na essência, com uma boa dose de grunge e alt metal, alternando entre passagens introspectivas e explosões de peso, com thrash e hardcore também correndo nas veias.">
+          Stoner / sludge metal at its core.</p>
+        <p data-en="After the 2021 EP <em>Dark Side</em> and a steady run of singles and live work, 2026 is the band's biggest year yet: a new EP in production, <em>“Mars and Venus”</em> out on September 1, an October show opening for RODOX in Blumenau, and a first European tour in early 2027 with routing underway and dates still open."
+           data-pt="Depois do EP <em>Dark Side</em> (2021) e de uma sequência constante de singles e shows, 2026 é o maior ano da história da banda: um novo EP em produção, <em>“Mars and Venus”</em> chegando em 1º de setembro, um show em outubro abrindo para o RODOX em Blumenau e a primeira turnê europeia no início de 2027, com roteiro em construção e datas em aberto.">
+          2026 is the band's biggest year yet.</p>
+      </div>
+    </div>
+    <div class="lineup">
+      <div class="member"><div class="n">Rian Rau</div><div class="r" data-en="Guitar · Vocals" data-pt="Guitarra · Vocal">Guitar · Vocals</div></div>
+      <div class="member"><div class="n">Je Claver</div><div class="r" data-en="Bass" data-pt="Baixo">Bass</div></div>
+      <div class="member"><div class="n">Brian de Freitas</div><div class="r" data-en="Drums" data-pt="Bateria">Drums</div></div>
+    </div>
+    <div class="strip" style="justify-content:flex-start;margin-top:26px">
+      <span data-en="Est. <b>2015</b>" data-pt="Desde <b>2015</b>">Est. <b>2015</b></span><span class="div">//</span>
+      <span data-en="<b>Power trio</b>" data-pt="<b>Power trio</b>"><b>Power trio</b></span><span class="div">//</span>
+      <span>Blumenau · SC · <b>BR</b></span><span class="div">//</span>
+      <span data-en="Full EPK <a href='../'>morningstorm.com.br/epk</a>" data-pt="EPK completo <a href='../'>morningstorm.com.br/epk</a>">Full EPK <a href="../">morningstorm.com.br/epk</a></span>
+    </div>
+  </div>
+</section>
+
+<section id="lyrics">
+  <div class="wrap">
+    <div class="eyebrow" data-en="Lyrics" data-pt="Letra">Lyrics</div>
+    <h2>Mars and Venus</h2>
+    <div class="lyrics" style="margin-top:22px">
+      <div class="head">English</div>
+      <div class="head pt">Português</div>
+
+      <div class="v">A land of sand,<br>hate, fear and dust.<br>A chance to lay,<br>my sin is lust.</div>
+      <div class="v pt">Uma terra de areia,<br>ódio, medo e poeira.<br>Uma chance de me deitar,<br>meu pecado é a luxúria.</div>
+
+      <div class="v">Good company is hard to find.</div>
+      <div class="v pt">Boa companhia é difícil de encontrar.</div>
+
+      <div class="v">I seat with gods,<br>my word is fire.<br>You shall make true<br>what I desire.</div>
+      <div class="v pt">Eu me sento com deuses,<br>minha palavra é fogo.<br>Você tornará real<br>o que eu desejo.</div>
+
+      <div class="v">I see myself in the black of your eyes.</div>
+      <div class="v pt">Eu me vejo no negro dos seus olhos.</div>
+
+      <div class="v chorus">Mars and Venus collide,<br>me and you we combine.<br>The alchemist said it's divine.</div>
+      <div class="v chorus pt">Marte e Vênus colidem,<br>eu e você nos unimos.<br>O alquimista disse que é divino.</div>
+
+      <div class="v chorus">Mars and Venus collide,<br>me and you we combine.<br>Mars and Venus collide,<br>me and you we combine.</div>
+      <div class="v chorus pt">Marte e Vênus colidem,<br>eu e você nos unimos.<br>Marte e Vênus colidem,<br>eu e você nos unimos.</div>
+
+      <div class="v">Bring me some water,<br>some satin sheets.<br>If I could walk,<br>why would I leave?</div>
+      <div class="v pt">Traga-me um pouco de água,<br>alguns lençóis de cetim.<br>Se eu pudesse andar,<br>por que eu iria embora?</div>
+
+      <div class="v">Good company is hard to find.</div>
+      <div class="v pt">Boa companhia é difícil de encontrar.</div>
+
+      <div class="v">I seat with gods,<br>my word is fire.<br>You shall make true<br>what I desire.</div>
+      <div class="v pt">Eu me sento com deuses,<br>minha palavra é fogo.<br>Você tornará real<br>o que eu desejo.</div>
+
+      <div class="v">I see myself in the black of your eyes.</div>
+      <div class="v pt">Eu me vejo no negro dos seus olhos.</div>
+
+      <div class="v chorus">Mars and Venus collide,<br>me and you we combine.<br>The alchemist said it's divine.</div>
+      <div class="v chorus pt">Marte e Vênus colidem,<br>eu e você nos unimos.<br>O alquimista disse que é divino.</div>
+
+      <div class="v chorus">Mars and Venus collide,<br>me and you we combine.<br>Mars and Venus collide,<br>me and you we combine.</div>
+      <div class="v chorus pt">Marte e Vênus colidem,<br>eu e você nos unimos.<br>Marte e Vênus colidem,<br>eu e você nos unimos.</div>
+
+      <div class="v">I seat with gods,<br>my word is fire.<br>You shall make true<br>what I desire.</div>
+      <div class="v pt">Eu me sento com deuses,<br>minha palavra é fogo.<br>Você tornará real<br>o que eu desejo.</div>
+    </div>
+    <p class="muted" style="margin-top:22px;font-size:14px"
+      data-en="Lyrics by Paulo Priess · Music by Rian Rau · © 2026 Morning Storm"
+      data-pt="Letra de Paulo Priess · Música de Rian Rau · © 2026 Morning Storm">Lyrics by Paulo Priess · Music by Rian Rau · © 2026 Morning Storm</p>
+  </div>
+</section>
+
+<div class="booking">
+  <div class="wrap">
+    <div class="eyebrow" data-en="Mars and Venus · Out September 1, 2026" data-pt="Mars and Venus · 1º de setembro de 2026">Mars and Venus · Out September 1, 2026</div>
+    <h2 style="margin-bottom:18px">Booking</h2>
+    <div class="contact">
+      <a href="mailto:morningstorm.band@gmail.com">morningstorm.band@gmail.com</a>
+      <span class="div">|</span>
+      <a href="https://wa.me/554796561957" target="_blank" rel="noopener">WhatsApp: +55 47 9656-1957</a>
+    </div>
+    <div class="links">
+      <a href="https://open.spotify.com/artist/00cH3oVJcHmZCkj8xq1Cs2" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://www.youtube.com/@morningstormband1640/videos" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://instagram.com/_morningstorm" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/morningstorm.band" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div class="strip" style="margin-top:26px">
+      <span data-en="Single EPK" data-pt="EPK do single">Single EPK</span><span class="div">//</span><span>Morning Storm</span><span class="div">//</span>
+      <span data-en="Blumenau · Brazil" data-pt="Blumenau · Brasil">Blumenau · Brazil</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap strip" style="justify-content:space-between">
+    <span>© 2026 Morning Storm</span>
+    <span class="muted" style="letter-spacing:.1em" data-en="Stoner / Sludge — since 2015"
+      data-pt="Stoner / Sludge — desde 2015">Stoner / Sludge — since 2015</span>
+  </div>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = el.dataset[lang];
+  });
+  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+  document.title = lang === 'pt' ? 'MORNING STORM — Mars and Venus · EPK do single' : 'MORNING STORM — Mars and Venus · Single EPK';
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const qsLang = new URLSearchParams(location.search).get('l');
+  const lang = (qsLang === 'pt' || qsLang === 'en')
+    ? qsLang
+    : (navigator.language.toLowerCase().startsWith('pt') ? 'pt' : 'en');
+  setLang(lang);
+});
+</script>
+
+</body>
+</html>

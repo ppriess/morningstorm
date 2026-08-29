@@ -1,0 +1,340 @@
+epk:
+  schema_version: "1.0"
+  language: "pt-BR"
+  artist: "Morning Storm"
+  title: "Mars and Venus"
+  type: "single_release_epk"
+  slug: "morning-storm-mars-and-venus"
+
+  seo:
+    title: "Morning Storm — Mars and Venus | EPK"
+    description: >-
+      EPK oficial de “Mars and Venus”, single da banda Morning Storm,
+      power trio de stoner / sludge metal de Blumenau, Santa Catarina.
+
+  hero:
+    artist: "Morning Storm"
+    release: "Mars and Venus"
+    release_type: "Single"
+    release_date: "2026-09-01"
+    genre: "stoner / sludge metal"
+    cover_url: "https://drive.google.com/file/d/10ocKI-iER37IBWM1TBcfwF1vtdV0pbrY/view?usp=drive_link"
+    video_url: "https://youtu.be/GlJelKcHB4Y"
+    presave_url: null
+
+  release:
+    format: "single avulso"
+    context: >-
+      “Mars and Venus” é um single avulso que prioriza a divulgação da nova
+      formação e da nova fase da Morning Storm.
+    related_project:
+      new_ep_in_production: true
+      single_is_part_of_ep: false
+
+  lyric_theme:
+    title: "Sobre a letra"
+    text: |-
+      A letra de “Mars and Venus” fala sobre como nós, seres humanos, por vezes
+      caminhamos perdidos, movidos pela soberba, pelo desejo e pela força da
+      atração. A música aborda também a dinâmica entre homens e mulheres, os
+      conflitos que surgem dentro dos relacionamentos e a disputa por poder que
+      pode existir entre duas pessoas.
+
+      Essas ideias aparecem por meio de metáforas e imagens ligadas aos astros,
+      à alquimia e a referências de culturas antigas, criando uma linguagem
+      simbólica para falar de desejo, união, confronto e domínio.
+
+  band:
+    origin:
+      city: "Blumenau"
+      state: "SC"
+      country: "Brasil"
+    formed_in: 2015
+    format: "power trio"
+    genre: "stoner / sludge metal"
+    lineup:
+      - name: "Rian Rau"
+        roles:
+          - "guitarra"
+          - "vocais"
+      - name: "Brian de Freitas"
+        roles:
+          - "bateria"
+      - name: "Je Faver"
+        roles:
+          - "baixo"
+
+    bio: |-
+      Morning Storm é um power trio de stoner / sludge metal de Blumenau,
+      Santa Catarina. A banda foi formada em 2015, mas suas raízes vêm de muito
+      antes: os integrantes carregam décadas de estrada. Rian Rau, responsável
+      por guitarra e vocal, toca ao vivo desde o fim dos anos 80; Je Faver é
+      baixista e professor de música; e Brian de Freitas é o baterista cuja
+      passagem por diversas bandas o tornou um dos nomes mais requisitados da
+      cena regional.
+
+      Morning Storm bebe direto da época em que os gêneros começaram a se
+      misturar nos anos 1990: stoner / sludge metal na essência, com uma boa
+      dose de grunge e alt metal, alternando entre passagens introspectivas e
+      explosões de peso, com thrash e hardcore também correndo nas veias. As
+      letras vão do psicológico e introspectivo (“Dark Side”, “Masks”) à crítica
+      social afiada (“Fight for Your Life”, “Ghost Town”, a última escrita sobre
+      a população em situação de rua), e seguem abrindo novos caminhos.
+
+      Depois do EP “Dark Side” (2021) e de uma sequência constante de singles e
+      shows, 2026 é o maior ano da história da banda. Um novo EP está em produção,
+      enquanto o single e clipe “Mars and Venus” chegam em 1º de setembro de 2026
+      para apresentar a nova formação e a nova fase da Morning Storm. Em outubro,
+      a banda abre para o RODOX em Blumenau. No início de 2027, a Morning Storm
+      cruza o Atlântico para sua primeira turnê europeia. O roteiro está em
+      construção e há datas em aberto.
+
+  audio_credits:
+    production: "Morning Storm"
+    composition: "Rian Rau"
+    lyrics: "Paulo Priess"
+    recording:
+      studio: "Digi Studio"
+      city: "Blumenau"
+      state: "SC"
+    mixing:
+      studio: "Digi Studio"
+      city: "Blumenau"
+      state: "SC"
+    mastering:
+      studio: "Digi Studio"
+      city: "Blumenau"
+      state: "SC"
+
+  video:
+    title: "Mars and Venus"
+    url: "https://youtu.be/GlJelKcHB4Y"
+    credits:
+      direction: "Rian Rau"
+      band_images_and_editing: "Marílio & Gideão"
+      assistant: "Carolina"
+      cgi_and_editing: "Paulo Priess"
+    copyright: "© 2026 Morning Storm"
+    website: "https://www.morningstorm.com.br"
+
+  tour:
+    title: "Tour de lançamento — Mars and Venus"
+    shows:
+      - date: "2026-09-12"
+        venue: "Rock Together"
+        city: "São Paulo"
+        state: "SP"
+        status: "confirmado"
+      - date: "2026-09-19"
+        venue: "Lado B"
+        city: "Curitiba"
+        state: "PR"
+        status: "confirmado"
+      - date: "2026-10-15"
+        venue: "Baader"
+        city: "Blumenau"
+        state: "SC"
+        status: "a confirmar"
+      - date: "2026-10-29"
+        venue: "Rodox"
+        city: "Blumenau"
+        state: "SC"
+        status: "confirmado"
+      - date: "2026-11-06"
+        venue: "Radioativo Studio"
+        city: "Caxias do Sul"
+        state: "RS"
+        status: "confirmado"
+      - date: "2026-11-07"
+        venue: "Gargula Bar"
+        city: "Santa Maria"
+        state: "RS"
+        status: "confirmado"
+      - date: "2026-11-08"
+        venue: "Caos Bar"
+        city: "Porto Alegre"
+        state: "RS"
+        status: "confirmado"
+
+  next_steps:
+    - "Divulgação de “Mars and Venus” e da nova formação da banda"
+    - "Novo EP em produção"
+    - "Agenda de shows no segundo semestre de 2026"
+    - "Primeira turnê europeia prevista para o início de 2027"
+    - "Roteiro europeu em construção, com datas em aberto"
+
+  channels:
+    - label: "Spotify"
+      type: "spotify"
+      url: "https://open.spotify.com/artist/00cH3oVJcHmZCkj8xq1Cs2"
+    - label: "YouTube"
+      type: "youtube"
+      url: "https://www.youtube.com/@morningstormband1640/videos"
+    - label: "Instagram"
+      type: "instagram"
+      url: "https://instagram.com/_morningstorm"
+    - label: "Facebook"
+      type: "facebook"
+      url: "https://www.facebook.com/morningstorm.band"
+    - label: "WhatsApp — Booking"
+      type: "whatsapp"
+      url: "https://wa.me/554796561957"
+
+  booking:
+    email: "morningstorm.band@gmail.com"
+    whatsapp: "+55 47 9656-1957"
+    whatsapp_url: "https://wa.me/554796561957"
+
+  press_assets:
+    - label: "Capa do single em alta resolução"
+      type: "cover"
+      url: "https://drive.google.com/file/d/10ocKI-iER37IBWM1TBcfwF1vtdV0pbrY/view?usp=drive_link"
+    - label: "Fotos oficiais — 2 horizontais em alta resolução"
+      type: "photos"
+      url: "https://drive.google.com/drive/folders/1NVpbyPL9UIP_oR4yWD1lsEv1_XxgGLAg?usp=sharing"
+    - label: "Videoclipe oficial — Mars and Venus"
+      type: "video"
+      url: "https://youtu.be/GlJelKcHB4Y"
+    - label: "MP3 320 kbps"
+      type: "audio"
+      direct_url: null
+      available_in_general_folder: true
+    - label: "Pasta geral com todos os arquivos"
+      type: "general_folder"
+      url: "https://drive.google.com/drive/folders/1GlsIOYeqhXjv9LMJOFPLDXZDxs7AwxfW?usp=sharing"
+
+  lyrics:
+    title: "Mars and Venus"
+    display: "bilingual_two_columns"
+    columns:
+      left: "English"
+      right: "Português"
+    blocks:
+      - en:
+          - "A land of sand,"
+          - "hate, fear and dust."
+          - "A chance to lay,"
+          - "my sin is lust."
+        pt:
+          - "Uma terra de areia,"
+          - "ódio, medo e poeira."
+          - "Uma chance de me deitar,"
+          - "meu pecado é a luxúria."
+
+      - en:
+          - "Good company is hard to find."
+        pt:
+          - "Boa companhia é difícil de encontrar."
+
+      - en:
+          - "I seat with gods,"
+          - "my word is fire."
+          - "You shall make true"
+          - "what I desire."
+        pt:
+          - "Eu me sento com deuses,"
+          - "minha palavra é fogo."
+          - "Você tornará real"
+          - "o que eu desejo."
+
+      - en:
+          - "I see myself in the black of your eyes."
+        pt:
+          - "Eu me vejo no negro dos seus olhos."
+
+      - en:
+          - "Mars and Venus collide,"
+          - "me and you we combine."
+          - "The alchemist said it's divine."
+        pt:
+          - "Marte e Vênus colidem,"
+          - "eu e você nos unimos."
+          - "O alquimista disse que é divino."
+
+      - en:
+          - "Mars and Venus collide,"
+          - "me and you we combine."
+          - "Mars and Venus collide,"
+          - "me and you we combine."
+        pt:
+          - "Marte e Vênus colidem,"
+          - "eu e você nos unimos."
+          - "Marte e Vênus colidem,"
+          - "eu e você nos unimos."
+
+      - en:
+          - "Bring me some water,"
+          - "some satin sheets."
+          - "If I could walk,"
+          - "why would I leave?"
+        pt:
+          - "Traga-me um pouco de água,"
+          - "alguns lençóis de cetim."
+          - "Se eu pudesse andar,"
+          - "por que eu iria embora?"
+
+      - en:
+          - "Good company is hard to find."
+        pt:
+          - "Boa companhia é difícil de encontrar."
+
+      - en:
+          - "I seat with gods,"
+          - "my word is fire."
+          - "You shall make true"
+          - "what I desire."
+        pt:
+          - "Eu me sento com deuses,"
+          - "minha palavra é fogo."
+          - "Você tornará real"
+          - "o que eu desejo."
+
+      - en:
+          - "I see myself in the black of your eyes."
+        pt:
+          - "Eu me vejo no negro dos seus olhos."
+
+      - en:
+          - "Mars and Venus collide,"
+          - "me and you we combine."
+          - "The alchemist said it's divine."
+        pt:
+          - "Marte e Vênus colidem,"
+          - "eu e você nos unimos."
+          - "O alquimista disse que é divino."
+
+      - en:
+          - "Mars and Venus collide,"
+          - "me and you we combine."
+          - "Mars and Venus collide,"
+          - "me and you we combine."
+        pt:
+          - "Marte e Vênus colidem,"
+          - "eu e você nos unimos."
+          - "Marte e Vênus colidem,"
+          - "eu e você nos unimos."
+
+      - en:
+          - "I seat with gods,"
+          - "my word is fire."
+          - "You shall make true"
+          - "what I desire."
+        pt:
+          - "Eu me sento com deuses,"
+          - "minha palavra é fogo."
+          - "Você tornará real"
+          - "o que eu desejo."
+
+  section_order:
+    - "hero"
+    - "release"
+    - "lyric_theme"
+    - "band"
+    - "audio_credits"
+    - "video"
+    - "tour"
+    - "next_steps"
+    - "channels"
+    - "booking"
+    - "press_assets"
+    - "lyrics"

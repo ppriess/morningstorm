@@ -9,3 +9,4 @@ epk/logo-grande.jpg
 *:Zone.Identifier
 .gitignore
 CLAUDE.md
+epk/mars/*.yaml
