@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MORNING STORM — Mars and Venus · Single EPK</title>
-<meta name="description" content="Mars and Venus — new single and video by Morning Storm, stoner / sludge metal power trio from Blumenau, Brazil. Out September 1, 2026. Press assets, credits and booking.">
+<title>MORNING STORM — Mars and Venus · EPK do single</title>
+<meta name="description" content="Mars and Venus — novo single e clipe da Morning Storm, power trio de stoner / sludge metal de Blumenau, SC. Lançamento em 1º de setembro de 2026. Material de imprensa, ficha técnica e booking.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -228,9 +228,9 @@ header .wrap{position:relative;z-index:2}
 <body>
 
 <div class="lang-switch">
-  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-en" onclick="setLang('en')">EN</button>
   <span class="sep">/</span>
-  <button id="btn-pt" onclick="setLang('pt')">PT</button>
+  <button id="btn-pt" class="active" onclick="setLang('pt')">PT</button>
 </div>
 
 <!-- Filtro SVG do efeito líquido no logo (invisível, só definição) -->
@@ -569,17 +569,15 @@ function setLang(lang) {
     el.innerHTML = el.dataset[lang];
   });
   document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
-  document.title = lang === 'pt' ? 'MORNING STORM — Mars and Venus · EPK do single' : 'MORNING STORM — Mars and Venus · Single EPK';
+  document.title = lang === 'en' ? 'MORNING STORM — Mars and Venus · Single EPK' : 'MORNING STORM — Mars and Venus · EPK do single';
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
   document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Português é o padrão; ?l=en (ou ?l=pt) força o idioma pela URL.
   const qsLang = new URLSearchParams(location.search).get('l');
-  const lang = (qsLang === 'pt' || qsLang === 'en')
-    ? qsLang
-    : (navigator.language.toLowerCase().startsWith('pt') ? 'pt' : 'en');
-  setLang(lang);
+  setLang(qsLang === 'en' ? 'en' : 'pt');
 });
 </script>
 
