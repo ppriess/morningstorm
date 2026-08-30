@@ -1,0 +1,66 @@
+{
+  "generatedAt": "2026-08-30T00:24:12.464Z",
+  "gigs": [
+    {
+      "id": "mtf1mae4beae9",
+      "title": "RODOX - Originals Tour",
+      "date": "2026-10-29",
+      "city": "Blumenau",
+      "uf": "SC",
+      "venue": "Rivage",
+      "role": "abertura",
+      "acts": [
+        "Rodox"
+      ],
+      "note": {
+        "en": "",
+        "pt": ""
+      },
+      "ticketUrl": null,
+      "pinned": true,
+      "poster": "gigs/gig-mtf1mae4beae9.jpg"
+    },
+    {
+      "id": "mtf1mdz0nmkya",
+      "title": "Zero Pila",
+      "date": "2026-07-11",
+      "city": "Blumenau",
+      "uf": "SC",
+      "venue": "Serial Ink Tattoo Club",
+      "role": "line-up",
+      "acts": [
+        "Chamas de Hades",
+        "Perdidos no Tempo",
+        "Break the System"
+      ],
+      "note": {
+        "en": "",
+        "pt": ""
+      },
+      "ticketUrl": null,
+      "pinned": false,
+      "poster": "gigs/gig-mtf1mdz0nmkya.jpg"
+    },
+    {
+      "id": "mtf1mfpi5k05i",
+      "title": "Underground Celebration",
+      "date": "2026-06-28",
+      "city": "Blumenau",
+      "uf": "SC",
+      "venue": "DOM Music Club",
+      "role": "line-up",
+      "acts": [
+        "Chamas de Hades",
+        "Atheros",
+        "Sugar Coated"
+      ],
+      "note": {
+        "en": "",
+        "pt": ""
+      },
+      "ticketUrl": null,
+      "pinned": false,
+      "poster": "gigs/gig-mtf1mfpi5k05i.jpg"
+    }
+  ]
+}
