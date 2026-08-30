@@ -97,8 +97,35 @@ p+p{margin-top:14px}
 .photos a:hover{opacity:.85}
 .photos img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--line)}
 .photos img.crop{height:auto;aspect-ratio:600/771;object-fit:cover}
-.gigs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:22px}
+.gigs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,210px));gap:16px;margin-top:18px;justify-content:start}
+.gigs figure{margin:0}
 .gigs img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--line)}
+.gigs figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-top:9px;line-height:1.55}
+.gigs figcaption b{display:block;color:var(--amber);font-weight:700;letter-spacing:.12em}
+
+/* ---- show em destaque (alfinetado no admin) ----
+   --hot é o laranja do carimbo do hero; usar o mesmo aqui amarra o destaque à
+   assinatura da página em vez de introduzir uma cor nova só para esta seção. */
+.gig-pin{display:grid;grid-template-columns:minmax(0,290px) 1fr;gap:28px;align-items:center;
+  border:2px solid var(--hot);border-radius:10px;background:var(--panel);padding:24px;margin-top:22px}
+.gig-pin img{width:100%;height:auto;display:block;border-radius:6px;border:1px solid var(--line)}
+.gig-pin .tag{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--hot);border:1px solid var(--hot);border-radius:3px;padding:3px 11px;margin-bottom:14px}
+.gig-pin h3{font-family:var(--display);font-size:clamp(26px,4.2vw,40px);line-height:1.04;letter-spacing:.02em;
+  text-transform:uppercase;color:var(--ink);margin-bottom:9px}
+.gig-pin .meta{font-family:var(--mono);font-size:12px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:13px}
+.gig-pin p{margin:0;max-width:56ch;font-size:15.5px}
+.gig-pin .tix{display:inline-block;margin-top:15px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:9px 18px;
+  color:var(--ink);transition:border-color .15s}
+.gig-pin .tix:hover{border-color:var(--amber);color:var(--amber)}
+@media(max-width:720px){.gig-pin{grid-template-columns:1fr;padding:16px;gap:18px}}
+
+/* ---- divisor "Eventos passados" ---- */
+.gig-sub{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
+  margin-top:36px;padding-top:16px;border-top:1px solid var(--line)}
 
 /* ---- links / booking ---- */
 .links{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
@@ -337,14 +364,40 @@ header .wrap{position:relative;z-index:2}
 <section id="live">
   <div class="wrap">
     <div class="eyebrow" data-en="On stage" data-pt="No palco">On stage</div>
-    <h2 data-en="2026 dates" data-pt="Datas 2026">2026 dates</h2>
-    <div class="gigs">
-      <img src="gig-29out.jpg" alt="Morning Storm — gig poster, October 29">
-      <img src="gig-11jul.png" alt="Morning Storm — gig poster, July 11">
-      <img src="gig-28jun.png" alt="Morning Storm — gig poster, June 28">
+    <h2 data-en="Shows" data-pt="Shows">Shows</h2>
+
+    <!-- Conteúdo gerado a partir de gigs.json pelo admin do Circuit Mapper.
+         O markup abaixo é o FALLBACK: fica visível se gigs.json não carregar,
+         para que a seção nunca apareça vazia para um booker. Ao carregar, o JS
+         no fim da página substitui #gigs-root inteiro. -->
+    <div id="gigs-root">
+      <div class="gig-pin">
+        <img src="gig-29out.jpg" alt="RODOX — Originals Tour, Blumenau, Oct 29 — Morning Storm opening">
+        <div>
+          <span class="tag" data-en="Featured" data-pt="Destaque">Featured</span>
+          <h3>RODOX — Originals Tour</h3>
+          <div class="meta" data-en="Oct 29, 2026 · Rivage · Blumenau/SC"
+            data-pt="29 out 2026 · Rivage · Blumenau/SC">Oct 29, 2026 · Rivage · Blumenau/SC</div>
+          <p data-en="Opening for <b>RODOX</b>, the new band of Rodolfo Abrantes (ex-Raimundos) and Fernando Scherer (Worst, Pavilhão 9) — one of the leading acts in Brazil's current hardcore/metal scene."
+            data-pt="Abrindo para o <b>RODOX</b>, a nova banda de Rodolfo Abrantes (ex-Raimundos) e Fernando Scherer (Worst, Pavilhão 9) — um dos principais nomes da cena hardcore/metal brasileira atual.">Opening for <b>RODOX</b>, the new band of Rodolfo Abrantes (ex-Raimundos) and Fernando Scherer (Worst, Pavilhão 9) — one of the leading acts in Brazil's current hardcore/metal scene.</p>
+        </div>
+      </div>
+      <div class="gig-sub" data-en="Past events" data-pt="Eventos passados">Past events</div>
+      <div class="gigs">
+        <figure>
+          <img src="gig-11jul.png" alt="Zero Pila 2nd edition — Morning Storm live poster" loading="lazy">
+          <figcaption data-en="<b>Jul 11, 2026</b>Serial Ink Tattoo Club · Blumenau/SC<br>With Chamas de Hades, Perdidos no Tempo, Break the System"
+            data-pt="<b>11 jul 2026</b>Serial Ink Tattoo Club · Blumenau/SC<br>Com Chamas de Hades, Perdidos no Tempo, Break the System"><b>Jul 11, 2026</b>Serial Ink Tattoo Club · Blumenau/SC<br>With Chamas de Hades, Perdidos no Tempo, Break the System</figcaption>
+        </figure>
+        <figure>
+          <img src="gig-28jun.png" alt="Underground Celebration — Morning Storm live poster" loading="lazy">
+          <figcaption data-en="<b>Jun 28, 2026</b>DOM Underground Club · Blumenau/SC<br>With Chamas de Hades, Atheros, Sugar Coated"
+            data-pt="<b>28 jun 2026</b>DOM Underground Club · Blumenau/SC<br>Com Chamas de Hades, Atheros, Sugar Coated"><b>Jun 28, 2026</b>DOM Underground Club · Blumenau/SC<br>With Chamas de Hades, Atheros, Sugar Coated</figcaption>
+        </figure>
+      </div>
     </div>
-    <p style="margin-top:14px;max-width:none" data-en="<b class=hl>Oct 29, 2026, Blumenau/SC:</b> opening for <b>RODOX</b>, the new band of Rodolfo Abrantes (ex-Raimundos) and Fernando Scherer (Worst, Pavilhão 9), one of the leading acts in Brazil's current hardcore/metal scene." data-pt="<b class=hl>29 out 2026, Blumenau/SC:</b> abrindo para o <b>RODOX</b>, a nova banda de Rodolfo Abrantes (ex-Raimundos) e Fernando Scherer (Worst, Pavilhão 9), um dos principais nomes da cena hardcore/metal brasileira atual."><b class=hl>Oct 29, 2026, Blumenau/SC:</b> opening for <b>RODOX</b>.</p>
-    <p class="muted" data-en="50+ shows across southern Brazil since 2015."
+
+    <p class="muted" style="margin-top:18px" data-en="50+ shows across southern Brazil since 2015."
       data-pt="Mais de 50 shows pelo sul do Brasil desde 2015.">50+ shows across southern Brazil since 2015.</p>
   </div>
 </section>
@@ -406,7 +459,10 @@ header .wrap{position:relative;z-index:2}
 </footer>
 
 <script>
+let msLang = 'en';
+
 function setLang(lang) {
+  msLang = lang;
   document.querySelectorAll('[data-en]').forEach(el => {
     el.innerHTML = el.dataset[lang];
   });
@@ -422,7 +478,115 @@ document.addEventListener('DOMContentLoaded', () => {
     ? qsLang
     : (navigator.language.toLowerCase().startsWith('pt') ? 'pt' : 'en');
   setLang(lang);
+  loadGigs();
 });
+
+/* ===== Shows: renderiza #gigs-root a partir de gigs.json =====
+   gigs.json é publicado pelo admin do Circuit Mapper (aba "Shows MS"), que
+   commita o arquivo e os pôsteres neste repo. Nada é buscado em runtime fora
+   deste domínio: se o VPS do admin cair, o EPK continua igual.
+
+   Todo elemento de texto criado aqui nasce com data-en E data-pt, porque
+   setLang() sobrescreve o innerHTML de tudo que tem [data-en] — um elemento
+   com só um dos dois some quando o visitante troca de idioma. */
+const GIG_MONTHS = {
+  en: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+  pt: ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']
+};
+// Campos vindos da extração por IA: escapa < e " para não quebrar o atributo.
+const gEsc = v => String(v == null ? '' : v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+// Notas escritas à mão por nós: mantém o HTML (<b>, <em>), escapa só as aspas
+// que fechariam o atributo cedo.
+const gAttr = v => String(v == null ? '' : v).replace(/"/g, '&quot;');
+
+function gigDate(iso, lang) {
+  if (!iso) return '';
+  const [y, m, d] = iso.split('-').map(Number);
+  if (!y || !m || !d) return iso;
+  return lang === 'pt' ? `${d} ${GIG_MONTHS.pt[m - 1]} ${y}` : `${GIG_MONTHS.en[m - 1]} ${d}, ${y}`;
+}
+function gigPlace(g) {
+  const cityUf = [g.city, g.uf].filter(Boolean).join('/');
+  return [g.venue, cityUf].filter(Boolean).map(gEsc).join(' · ');
+}
+function gigWith(g, lang) {
+  const acts = (g.acts || []).filter(Boolean);
+  if (!acts.length) return '';
+  const list = acts.map(gEsc).join(', ');
+  if (g.role === 'abertura') return (lang === 'pt' ? 'Abrindo para ' : 'Opening for ') + list;
+  return (lang === 'pt' ? 'Com ' : 'With ') + list;
+}
+// Constrói um elemento bilíngue já no idioma corrente, com os dois idiomas nos
+// data-attributes para o toggle continuar funcionando.
+function gigEl(tag, cls, en, pt) {
+  return `<${tag}${cls ? ` class="${cls}"` : ''} data-en="${gAttr(en)}" data-pt="${gAttr(pt)}">${msLang === 'pt' ? pt : en}</${tag}>`;
+}
+
+function gigPinCard(g) {
+  const meta = l => [gigDate(g.date, l), gigPlace(g)].filter(Boolean).join(' · ');
+  const noteEn = g.note && g.note.en ? g.note.en : gigWith(g, 'en');
+  const notePt = g.note && g.note.pt ? g.note.pt : gigWith(g, 'pt');
+  const alt = [g.title, g.venue, g.city].filter(Boolean).join(' — ');
+  return `<div class="gig-pin">
+    <img src="${gEsc(g.poster)}" alt="Morning Storm — ${gEsc(alt)}">
+    <div>
+      ${gigEl('span', 'tag', 'Featured', 'Destaque')}
+      <h3>${gEsc(g.title || g.venue || '')}</h3>
+      ${gigEl('div', 'meta', meta('en'), meta('pt'))}
+      ${noteEn || notePt ? gigEl('p', '', noteEn, notePt) : ''}
+      ${g.ticketUrl ? `<a class="tix" href="${gEsc(g.ticketUrl)}" target="_blank" rel="noopener"
+        data-en="Tickets" data-pt="Ingressos">${msLang === 'pt' ? 'Ingressos' : 'Tickets'}</a>` : ''}
+    </div>
+  </div>`;
+}
+
+function gigFigure(g) {
+  const cap = l => `<b>${gigDate(g.date, l)}</b>${gigPlace(g)}`
+    + (gigWith(g, l) ? '<br>' + gigWith(g, l) : '');
+  const alt = [g.title, g.venue, g.city].filter(Boolean).join(' — ');
+  return `<figure>
+    <img src="${gEsc(g.poster)}" alt="Morning Storm — ${gEsc(alt)}" loading="lazy">
+    ${gigEl('figcaption', '', cap('en'), cap('pt'))}
+  </figure>`;
+}
+
+async function loadGigs() {
+  const root = document.getElementById('gigs-root');
+  if (!root) return;
+  let data;
+  try {
+    const r = await fetch('gigs.json', { cache: 'no-cache' });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    data = await r.json();
+  } catch (e) {
+    // Mantém o fallback estático que já está no HTML — a seção nunca fica vazia.
+    console.warn('[gigs] usando fallback estático:', e.message);
+    return;
+  }
+  const gigs = (data && Array.isArray(data.gigs) ? data.gigs : []).filter(g => g && g.poster);
+  if (!gigs.length) return;
+
+  const today = new Date().toISOString().slice(0, 10);
+  const pinned = gigs.find(g => g.pinned);
+  const rest = gigs.filter(g => g !== pinned);
+  const upcoming = rest.filter(g => g.date && g.date >= today).sort((a, b) => a.date.localeCompare(b.date));
+  // Sem data cai em "passados": um pôster sem data não pode ser anunciado como
+  // show futuro no material que vai para booker.
+  const past = rest.filter(g => !g.date || g.date < today)
+    .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+  let html = '';
+  if (pinned) html += gigPinCard(pinned);
+  if (upcoming.length) {
+    if (pinned) html += gigEl('div', 'gig-sub', 'Upcoming', 'Próximos shows');
+    html += `<div class="gigs">${upcoming.map(gigFigure).join('')}</div>`;
+  }
+  if (past.length) {
+    html += gigEl('div', 'gig-sub', 'Past events', 'Eventos passados');
+    html += `<div class="gigs">${past.map(gigFigure).join('')}</div>`;
+  }
+  root.innerHTML = html;
+}
 </script>
 
 </body>
