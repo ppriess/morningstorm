@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-08-30T00:24:12.464Z",
+  "generatedAt": "2026-08-30T00:55:52.551Z",
   "gigs": [
     {
       "id": "mtf1mae4beae9",
-      "title": "RODOX - Originals Tour",
+      "title": "RODOX — Originals Tour",
       "date": "2026-10-29",
       "city": "Blumenau",
       "uf": "SC",
       "venue": "Rivage",
       "role": "abertura",
       "acts": [
-        "Rodox"
+        "RODOX"
       ],
       "note": {
-        "en": "",
-        "pt": ""
+        "en": "Opening for <b>RODOX</b>, the new band of Rodolfo Abrantes (ex-Raimundos) and Fernando Scherer (Worst, Pavilhão 9) — one of the leading acts in Brazil's current hardcore/metal scene.",
+        "pt": "Abrindo para o <b>RODOX</b>, a nova banda de Rodolfo Abrantes (ex-Raimundos) e Fernando Scherer (Worst, Pavilhão 9) — um dos principais nomes da cena hardcore/metal brasileira atual."
       },
       "ticketUrl": null,
       "pinned": true,
@@ -22,7 +22,7 @@
     },
     {
       "id": "mtf1mdz0nmkya",
-      "title": "Zero Pila",
+      "title": "Zero Pila — 2ª Edição",
       "date": "2026-07-11",
       "city": "Blumenau",
       "uf": "SC",
@@ -47,7 +47,7 @@
       "date": "2026-06-28",
       "city": "Blumenau",
       "uf": "SC",
-      "venue": "DOM Music Club",
+      "venue": "DOM Underground Club",
       "role": "line-up",
       "acts": [
         "Chamas de Hades",
