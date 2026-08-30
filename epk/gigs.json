@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-30T00:55:52.551Z",
+  "generatedAt": "2026-08-30T01:04:08.858Z",
   "gigs": [
     {
       "id": "mtf1mae4beae9",
@@ -61,6 +61,45 @@
       "ticketUrl": null,
       "pinned": false,
       "poster": "gigs/gig-mtf1mfpi5k05i.jpg"
+    },
+    {
+      "id": "mtf3vp46hxxu6",
+      "title": "Uivos em Favor de Gaza",
+      "date": "2026-09-12",
+      "city": "São Paulo",
+      "uf": "SP",
+      "venue": "RockTogether Studio",
+      "role": "line-up",
+      "acts": [
+        "Avante!",
+        "A.N.I - Alto Nível de Insanidade"
+      ],
+      "note": {
+        "en": "",
+        "pt": ""
+      },
+      "ticketUrl": null,
+      "pinned": false,
+      "poster": "gigs/gig-mtf3vp46hxxu6.jpg"
+    },
+    {
+      "id": "mtf3vmviv38q7",
+      "title": "Stoned Attack",
+      "date": "2026-09-19",
+      "city": "Curitiba",
+      "uf": "PR",
+      "venue": "Lab.B",
+      "role": "headliner",
+      "acts": [
+        "Barra Pesada"
+      ],
+      "note": {
+        "en": "",
+        "pt": ""
+      },
+      "ticketUrl": null,
+      "pinned": false,
+      "poster": "gigs/gig-mtf3vmviv38q7.jpg"
     }
   ]
 }
