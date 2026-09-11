@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MORNING STORM — EPK · Electronic Press Kit</title>
+<meta name="description" content="Morning Storm — stoner / sludge from Blumenau, Brazil. European tour early 2027. Booking open.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#131110; --panel:#1b1815; --line:rgba(245,166,35,.16);
+  --ink:#ece6dd; --muted:#9a907f;
+  --amber:#f5a623; --hot:#ff7a3d;
+  --display:'Anton',sans-serif; --body:'DM Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.65;
+  background-image:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(245,166,35,.06),transparent)}
+a{color:var(--amber)}
+.wrap{max-width:880px;margin:0 auto;padding:0 22px}
+
+/* ---- tiras de dados (assinatura: estética de datesheet) ---- */
+.strip{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  display:flex;gap:14px;flex-wrap:wrap;justify-content:center;align-items:center}
+.strip b{color:var(--amber);font-weight:700}
+.strip .div{color:var(--amber);opacity:.5}
+
+/* ---- hero ---- */
+header{padding:72px 0 40px;text-align:center;border-bottom:1px solid var(--line)}
+h1{font-family:var(--display);font-size:clamp(64px,13vw,128px);line-height:.92;letter-spacing:.01em;
+  text-transform:uppercase;color:var(--ink)}
+h1 span{color:var(--amber)}
+.stamp{display:inline-block;margin:34px 0 6px;padding:12px 26px;border:3px solid var(--hot);color:var(--hot);
+  font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:.18em;text-transform:uppercase;
+  transform:rotate(-2.5deg);border-radius:4px}
+.stamp small{display:block;font-size:10.5px;letter-spacing:.22em;color:var(--amber);margin-top:4px}
+.header-top{display:flex;gap:28px;align-items:flex-start;justify-content:center;margin-top:20px}
+.header-text{display:flex;flex-direction:column;align-items:center;gap:12px}
+.header-text .stamp{margin:0}
+@media (max-width:720px){.header-top{flex-direction:column;align-items:center}}
+
+/* ---- seções ---- */
+section{padding:54px 0;border-bottom:1px solid var(--line)}
+h2{font-family:var(--display);font-size:30px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:6px}
+p{max-width:64ch;color:var(--ink)}
+p+p{margin-top:14px}
+.muted{color:var(--muted)}
+
+/* ---- vídeo ---- */
+.video{position:relative;width:100%;aspect-ratio:16/9;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:12px;letter-spacing:.15em;color:var(--muted);text-transform:uppercase}
+/* fachada do player: a página nasce com uma imagem; o iframe do YouTube só
+   é criado no clique (cinco embeds no load custariam cinco players) */
+.video .vposter{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vplay{position:absolute;inset:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(180deg,rgba(19,17,16,.10),rgba(19,17,16,.55));border:0;cursor:pointer;color:var(--hot)}
+.vplay svg{width:72px;height:auto;filter:drop-shadow(0 4px 18px rgba(0,0,0,.6));transition:transform .15s}
+.vplay:hover svg,.vplay:focus-visible svg{transform:scale(1.08)}
+.vcap{margin-top:10px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--amber)}
+.vidrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:16px}
+.vthumb{position:relative;padding:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;
+  background:var(--panel);cursor:pointer;text-align:left;color:inherit;font:inherit;transition:border-color .15s}
+.vthumb:hover,.vthumb:focus-visible{border-color:var(--amber);outline:none}
+.vthumb[aria-current="true"]{border-color:var(--hot)}
+.vthumb img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;opacity:.65;transition:opacity .15s}
+.vthumb:hover img,.vthumb:focus-visible img,.vthumb[aria-current="true"] img{opacity:1}
+.vthumb .vt{display:block;padding:9px 10px;font-family:var(--mono);font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--muted);line-height:1.35}
+.vthumb[aria-current="true"] .vt{color:var(--ink)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:560px){.vidrow{grid-template-columns:repeat(2,1fr)}}
+
+/* ---- discografia ---- */
+.disco{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-top:22px}
+.rel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px 16px;text-decoration:none;color:var(--ink);
+  transition:border-color .15s}
+.rel:hover{border-color:var(--amber)}
+.rel .cover{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:6px;border:1px solid var(--line);
+  display:block;margin-bottom:12px}
+.rel .y{font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:.12em}
+.rel .t{font-family:var(--display);font-size:19px;letter-spacing:.03em;text-transform:uppercase;line-height:1.15;margin:6px 0 4px}
+.rel .f{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+
+/* ---- destaque EP novo ---- */
+.callout{background:linear-gradient(120deg,rgba(245,166,35,.10),rgba(255,122,61,.05));border:1px solid var(--amber);
+  border-radius:10px;padding:26px 28px;margin-top:24px;display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.callout .cover{width:200px;max-width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px;
+  border:1px solid var(--line);flex-shrink:0}
+.callout .body{flex:1;min-width:240px}
+.callout .t{font-family:var(--display);font-size:26px;text-transform:uppercase;letter-spacing:.03em;color:var(--amber)}
+
+/* ---- lineup ---- */
+.lineup{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:20px}
+.member{border-left:3px solid var(--amber);padding:4px 0 4px 16px}
+.member .n{font-family:var(--display);font-size:20px;text-transform:uppercase;letter-spacing:.03em}
+.member .r{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+
+/* ---- bio com foto ---- */
+.bio-grid{display:grid;grid-template-columns:300px 1fr;gap:32px;margin-top:18px;align-items:start}
+.bio-grid .bandphoto{width:100%;border-radius:8px;border:1px solid var(--line);display:block;
+  filter:saturate(.95);box-shadow:0 12px 32px rgba(0,0,0,.45)}
+.bio-grid p:first-child{margin-top:0}
+@media (max-width:720px){.bio-grid{grid-template-columns:1fr}.bio-grid .bandphoto{max-width:380px;margin:0 auto}}
+
+/* ---- fotos ---- */
+.photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:22px;align-items:start}
+.photos .ph{aspect-ratio:3/2;background:var(--panel);border:1px dashed var(--line);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;
+  letter-spacing:.15em;color:var(--muted);text-transform:uppercase}
+.photos a{display:block;border-radius:8px;transition:opacity .2s ease}
+.photos a:hover{opacity:.85}
+.photos img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--line)}
+.photos img.crop{height:auto;aspect-ratio:600/771;object-fit:cover}
+.gigs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,210px));gap:16px;margin-top:18px;justify-content:start}
+.gigs figure{margin:0}
+.gigs img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--line)}
+.gigs figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-top:9px;line-height:1.55}
+.gigs figcaption b{display:block;color:var(--amber);font-weight:700;letter-spacing:.12em}
+
+/* ---- show em destaque (alfinetado no admin) ----
+   --hot é o laranja do carimbo do hero; usar o mesmo aqui amarra o destaque à
+   assinatura da página em vez de introduzir uma cor nova só para esta seção. */
+.gig-pin{display:grid;grid-template-columns:minmax(0,290px) 1fr;gap:28px;align-items:center;
+  border:2px solid var(--hot);border-radius:10px;background:var(--panel);padding:24px;margin-top:22px}
+.gig-pin img{width:100%;height:auto;display:block;border-radius:6px;border:1px solid var(--line)}
+.gig-pin .tag{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--hot);border:1px solid var(--hot);border-radius:3px;padding:3px 11px;margin-bottom:14px}
+.gig-pin h3{font-family:var(--display);font-size:clamp(26px,4.2vw,40px);line-height:1.04;letter-spacing:.02em;
+  text-transform:uppercase;color:var(--ink);margin-bottom:9px}
+.gig-pin .meta{font-family:var(--mono);font-size:12px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:13px}
+.gig-pin p{margin:0;max-width:56ch;font-size:15.5px}
+.gig-pin .tix{display:inline-block;margin-top:15px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:9px 18px;
+  color:var(--ink);transition:border-color .15s}
+.gig-pin .tix:hover{border-color:var(--amber);color:var(--amber)}
+@media(max-width:720px){.gig-pin{grid-template-columns:1fr;padding:16px;gap:18px}}
+
+/* ---- divisor "Eventos passados" ---- */
+.gig-sub{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
+  margin-top:36px;padding-top:16px;border-top:1px solid var(--line)}
+
+/* ---- links / booking ---- */
+.links{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.links a{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;
+  border:1px solid var(--line);border-radius:99px;padding:10px 20px;color:var(--ink);transition:border-color .15s}
+.links a:hover{border-color:var(--amber);color:var(--amber)}
+.booking{text-align:center;padding:70px 0 80px}
+.booking .contact{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;align-items:center;
+  font-family:var(--display);font-size:clamp(17px,3.2vw,26px);text-transform:uppercase;letter-spacing:.02em}
+.booking .contact a{color:var(--amber);text-decoration:none}
+.booking .contact a:hover{color:var(--hot)}
+.booking .contact .div{color:var(--muted)}
+footer{padding:26px 0 40px;border-top:1px solid var(--line)}
+
+/* ---- seletor de idioma ---- */
+.lang-switch{position:fixed;top:16px;right:16px;z-index:60;display:flex;align-items:center;gap:2px;
+  border:1px solid var(--line);padding:4px 6px;border-radius:6px;
+  background:rgba(19,17,16,.72);backdrop-filter:blur(6px)}
+.lang-switch button{background:none;border:none;cursor:pointer;font-family:var(--mono);font-size:.65rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:4px 7px;transition:color .15s;line-height:1}
+.lang-switch button.active{color:var(--amber)}
+.lang-switch button:hover:not(.active){color:var(--ink)}
+.lang-switch .sep{color:var(--line);font-size:.7rem;user-select:none}
+.hl{color:var(--amber)}
+
+/* ---- textura grunge nas seções alternadas ---- */
+section:nth-of-type(even){position:relative;background:#161310}
+section:nth-of-type(even)::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.96 0 0 0 0 0.65 0 0 0 0 0.14 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+section:nth-of-type(even)::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.35;
+  background:
+    repeating-linear-gradient(115deg,transparent 0 140px,rgba(245,166,35,.045) 140px 141px,transparent 141px 290px),
+    repeating-linear-gradient(63deg,transparent 0 220px,rgba(236,230,221,.03) 220px 221px,transparent 221px 410px);
+  mask-image:radial-gradient(120% 90% at 50% 40%,#000 55%,transparent 100%)}
+section:nth-of-type(even) .wrap{position:relative;z-index:1}
+
+/* ---- vídeo de fundo do hero ---- */
+header{position:relative;overflow:hidden}
+.herovid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.38;filter:saturate(.9)}
+/* imagem da banda: largura do conteúdo, logo acima do vídeo de fundo */
+.bandheader{position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:min(880px,calc(100% - 44px));height:100%;object-fit:cover;z-index:0;pointer-events:none;
+  mix-blend-mode:multiply}
+header::after{content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(19,17,16,.55),rgba(19,17,16,.35) 45%,var(--bg) 96%)}
+header .wrap{position:relative;z-index:2}
+@media (prefers-reduced-motion:reduce){.herovid{display:none}}
+
+/* ---- van em movimento ---- */
+.vanlane{position:absolute;left:0;right:0;bottom:14px;height:120px;z-index:3;pointer-events:none;overflow:visible;
+  animation:vandrive 46s linear infinite}
+.vanlane img{width:200px;animation:vanbob 1.1s ease-in-out infinite;
+  filter:drop-shadow(0 10px 14px rgba(0,0,0,.55))}
+@keyframes vandrive{from{transform:translateX(100vw)}to{transform:translateX(-240px)}}
+@keyframes vanbob{0%,100%{transform:translateY(0) rotate(-.4deg)}50%{transform:translateY(-3px) rotate(.4deg)}}
+@media (prefers-reduced-motion:reduce){.vanlane{animation:none;left:auto;right:4%}.vanlane img{animation:none}}
+@media (max-width:860px){.vanlane img{width:140px}}
+
+/* ---- logo + glitch ---- */
+.brandmark{width:min(520px,82vw);height:auto;display:block;position:relative;
+  filter:url(#water-ripple) drop-shadow(0 6px 24px rgba(0,0,0,.6));
+  animation:liquid-swim 8s infinite ease-in-out alternate}
+.logo-glitch{position:relative;display:inline-block}
+.logo-glitch::before,.logo-glitch::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:url('/epk/logo-transp-white.png') no-repeat center/contain;opacity:.8;mix-blend-mode:screen}
+/* Neon green channel — slow 12s cycle, glitches in rare bursts */
+.logo-glitch::before{animation:glitch-anim-1 12s infinite linear alternate-reverse;
+  filter:drop-shadow(-3px -2px 0 #00ff00) hue-rotate(90deg)}
+/* Neon red channel */
+.logo-glitch::after{animation:glitch-anim-2 12s infinite linear alternate-reverse;
+  filter:drop-shadow(3px 2px 0 #ff0000) hue-rotate(0deg)}
+/* Diagonal tear movements using mixed X and Y translations */
+@keyframes glitch-anim-1{
+  0%{clip-path:inset(40% 0 61% 0);transform:translate(-4px,-2px) skew(.3deg)}
+  5%{clip-path:inset(92% 0 1% 0);transform:translate(2px,3px) skew(-.5deg)}
+  10%{clip-path:inset(15% 0 80% 0);transform:translate(0,0) skew(0deg)}
+  60%{clip-path:inset(80% 0 5% 0);transform:translate(-2px,1px) skew(-.2deg)}
+  65%{clip-path:inset(3% 0 92% 0);transform:translate(3px,-3px) skew(.4deg)}
+  70%{clip-path:inset(60% 0 35% 0);transform:translate(0,0) skew(0deg)}
+  100%{clip-path:inset(60% 0 35% 0);transform:translate(0,0)}
+}
+@keyframes glitch-anim-2{
+  0%{clip-path:inset(25% 0 58% 0);transform:translate(3px,2px) skew(-.2deg)}
+  5%{clip-path:inset(70% 0 25% 0);transform:translate(-3px,-1px) skew(.4deg)}
+  10%{clip-path:inset(5% 0 85% 0);transform:translate(0,0) skew(0deg)}
+  65%{clip-path:inset(90% 0 2% 0);transform:translate(2px,4px) skew(.1deg)}
+  70%{clip-path:inset(33% 0 60% 0);transform:translate(-4px,-2px) skew(-.5deg)}
+  75%{clip-path:inset(12% 0 78% 0);transform:translate(0,0) skew(0deg)}
+  100%{clip-path:inset(12% 0 78% 0);transform:translate(0,0)}
+}
+/* Liquid ripple — SVG displacement filter warps the logo pixels like water,
+   while a slow swim drift shifts how the noise bends the edges */
+@keyframes liquid-swim{
+  0%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(1px,-2px) scale(1.005)}
+  100%{transform:translate(-1px,1px) scale(.998)}
+}
+@media (prefers-reduced-motion:reduce){
+  .logo-glitch::before,.logo-glitch::after{display:none}
+  .brandmark{filter:drop-shadow(0 6px 24px rgba(0,0,0,.6))}
+}
+</style>
+</head>
+<body>
+
+<div class="lang-switch">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <span class="sep">/</span>
+  <button id="btn-pt" onclick="setLang('pt')">PT</button>
+</div>
+
+<!-- Filtro SVG do efeito líquido no logo (invisível, só definição) -->
+<svg width="0" height="0" style="position:absolute;pointer-events:none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="water-ripple">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.05" numOctaves="2" result="noise">
+        <animate attributeName="baseFrequency" dur="7s" repeatCount="indefinite"
+          values="0.02 0.05;0.028 0.065;0.022 0.045;0.02 0.05"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<header>
+  <!-- VÍDEO DE FUNDO: coloque o arquivo hero.mp4 na mesma pasta deste HTML -->
+  <video class="herovid" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+    <source src="/epk/hero.mp4" type="video/mp4">
+  </video>
+  <!-- <img class="bandheader" src="/epk/banda-header-01.png" alt="" aria-hidden="true"> -->
+  <div class="wrap">
+    <div class="header-top">
+      <h1><span class="logo-glitch"><img class="brandmark" src="/epk/logo-transp-white.png" alt="Morning Storm"></span></h1>
+      <div class="header-text">
+        <div class="strip">
+          <span><b>Stoner / Sludge</b></span><span class="div">//</span>
+          <span data-en="Blumenau · Brazil" data-pt="Blumenau · Brasil">Blumenau · Brazil</span><span class="div">//</span>
+          <span data-en="Est. <b>2015</b>" data-pt="Desde <b>2015</b>">Est. <b>2015</b></span>
+        </div>
+        <div class="stamp" data-en="European Tour · Early 2027<small>Booking Open</small>"
+          data-pt="Turnê Europeia · Início de 2027<small>Datas em aberto</small>">European Tour · Early 2027<small>Booking Open</small></div>
+        <div class="links">
+          <a href="https://open.spotify.com/artist/00cH3oVJcHmZCkj8xq1Cs2" target="_blank" rel="noopener">Spotify</a>
+          <a href="https://www.youtube.com/@morningstormband1640/videos" target="_blank" rel="noopener">YouTube</a>
+          <a href="https://instagram.com/_morningstorm" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/morningstorm.band" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- VAN ANIMADA: coloque van.png na mesma pasta deste HTML -->
+  <!-- <div class="vanlane"><img src="/epk/van.png" alt="" onerror="this.parentNode.remove()"></div> -->
+</header>
+
+<section id="video">
+  <div class="wrap">
+    <div class="eyebrow" data-en="Watch" data-pt="Assista">Watch</div>
+    <h2 data-en="Videos" data-pt="Vídeos">Videos</h2>
+
+    <div class="video" id="ms-player" style="margin-top:18px">
+      <img class="vposter" id="ms-poster" src="https://i.ytimg.com/vi/YGgUEh_j6aE/maxresdefault.jpg"
+        onload="msPoster(this)" onerror="msPoster(this, true)"
+        alt="Morning Storm — Dark Side">
+      <button class="vplay" type="button" onclick="msPlayCurrent()">
+        <span class="sr" data-en="Play video" data-pt="Reproduzir vídeo">Play video</span>
+        <svg viewBox="0 0 68 48" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M66.5 7.7a8.6 8.6 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.7a8.6 8.6 0 0 0-6 6A89.8 89.8 0 0 0 0 24a89.8 89.8 0 0 0 1.5 16.3 8.6 8.6 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.7a8.6 8.6 0 0 0 6-6A89.8 89.8 0 0 0 68 24a89.8 89.8 0 0 0-1.5-16.3z"/>
+          <path fill="#131110" d="M27 34.3 45 24 27 13.7z"/>
+        </svg>
+      </button>
+    </div>
+    <div class="vcap" id="ms-nowplaying" data-en="Dark Side" data-pt="Dark Side">Dark Side</div>
+
+    <div class="vidrow" id="ms-vidrow">
+      <button class="vthumb" type="button" data-vid="YGgUEh_j6aE" aria-current="true"
+        onclick="msVideo(this)">
+        <img src="https://i.ytimg.com/vi/YGgUEh_j6aE/hqdefault.jpg" alt="Morning Storm — Dark Side" loading="lazy">
+        <span class="vt" data-en="Dark Side" data-pt="Dark Side">Dark Side</span>
+      </button>
+      <button class="vthumb" type="button" data-vid="AEvyzorxeqY" aria-current="false"
+        onclick="msVideo(this)">
+        <img src="https://i.ytimg.com/vi/AEvyzorxeqY/hqdefault.jpg" alt="Morning Storm — Ghost Town" loading="lazy">
+        <span class="vt" data-en="Ghost Town" data-pt="Ghost Town">Ghost Town</span>
+      </button>
+      <button class="vthumb" type="button" data-vid="Vpkf0Ff99dY" aria-current="false"
+        onclick="msVideo(this)">
+        <img src="https://i.ytimg.com/vi/Vpkf0Ff99dY/hqdefault.jpg" alt="Morning Storm — Scars On My Face" loading="lazy">
+        <span class="vt" data-en="Scars On My Face" data-pt="Scars On My Face">Scars On My Face</span>
+      </button>
+      <button class="vthumb" type="button" data-vid="5wUGK_wPkRI" aria-current="false"
+        onclick="msVideo(this)">
+        <img src="https://i.ytimg.com/vi/5wUGK_wPkRI/hqdefault.jpg" alt="Morning Storm — Masks" loading="lazy">
+        <span class="vt" data-en="Masks" data-pt="Masks">Masks</span>
+      </button>
+      <button class="vthumb" type="button" data-vid="GlJelKcHB4Y" aria-current="false"
+        onclick="msVideo(this)">
+        <img src="https://i.ytimg.com/vi/GlJelKcHB4Y/hqdefault.jpg" alt="Morning Storm — Mars &amp; Venus · 2026 lineup" loading="lazy">
+        <span class="vt" data-en="Mars &amp; Venus · 2026 lineup" data-pt="Mars &amp; Venus · formação 2026">Mars &amp; Venus · 2026 lineup</span>
+      </button>
+    </div>
+
+    <p class="muted" style="margin-top:14px;font-size:14px"><span data-en="More on" data-pt="Mais no">More on</span>
+      <a href="https://www.youtube.com/@morningstormband1640/videos" target="_blank" rel="noopener">YouTube</a>.</p>
+  </div>
+</section>
+
+<section id="bio">
+  <div class="wrap">
+    <div class="eyebrow" data-en="Press release" data-pt="Release">Press release</div>
+    <h2 data-en="The Band" data-pt="A Banda">The Band</h2>
+    <div class="bio-grid">
+      <img class="bandphoto" src="/epk/morning-storm-band.png" alt="Morning Storm — band photo">
+      <div>
+    <p data-en="Morning Storm is a stoner / sludge three-piece from Blumenau, southern Brazil. The band was formed in 2015, but its foundations run much deeper: the members carry decades of stage experience. Rian, responsible for guitars and vocals, plays live since the late '80s, Je Claver is the bassist who teaches music for a living, and Brian de Freitas is the drummer whose work across multiple bands has made him one of the most in-demand players in the regional scene."
+       data-pt="Morning Storm é um power trio de stoner / sludge de Blumenau, Santa Catarina. A banda foi formada em 2015, mas suas raízes vêm de muito antes: os integrantes carregam décadas de estrada. Rian, responsável por guitarra e vocal, toca ao vivo desde o fim dos anos 80, Je Claver é o baixista que é professor de música, e Brian de Freitas é o baterista cuja passagem por diversas bandas o tornou um dos nomes mais requisitados da cena regional.">
+      Morning Storm is a stoner / sludge three-piece from Blumenau, southern Brazil.</p>
+    <p data-en="Morning Storm drinks straight from the moment genres started bleeding into each other in the 1990s: stoner / sludge at its core, with a healthy dose of grunge and alt metal, swinging between introspective passages and explosive bursts, with some thrash and hardcore also running through its bloodstream. The lyrics range from the psychological and introspective (<em>“Dark Side”</em>, <em>“Masks”</em>) to sharp social commentary (<em>“Fight for Your Life”</em>, <em>“Ghost Town”</em>, the latter written about life on the streets), and keep expanding into new territory."
+       data-pt="Morning Storm bebe direto da época em que os gêneros começaram a se misturar nos anos 1990: stoner / sludge na essência, com uma boa dose de grunge e alt metal, alternando entre passagens introspectivas e explosões de peso, com thrash e hardcore também correndo nas veias. As letras vão do psicológico e introspectivo (<em>“Dark Side”</em>, <em>“Masks”</em>) à crítica social afiada (<em>“Fight for Your Life”</em>, <em>“Ghost Town”</em>, a última escrita sobre a população em situação de rua), e seguem abrindo novos caminhos.">
+      That history shapes the sound.</p>
+    <p data-en="After the 2021 EP <em>Dark Side</em> and a steady run of singles and live work, 2026 is the band's biggest year yet. A new EP is in production, with lead single and video <em>“Mars and Venus”</em> out on September 1. In October, Morning Storm opens for RODOX, the new band of Rodolfo Abrantes (ex-Raimundos), one of the defining voices of Brazilian rock. In early 2027, Morning Storm crosses the Atlantic for its first European tour. Routing is underway and dates are still open for booking."
+       data-pt="Depois do EP <em>Dark Side</em> (2021) e de uma sequência constante de singles e shows, 2026 é o maior ano da história da banda. Um novo EP está em produção, com o single e clipe <em>“Mars and Venus”</em> chegando em 1º de setembro. Em outubro, a Morning Storm abre para o RODOX, a nova banda de Rodolfo Abrantes. E no início de 2027, a banda cruza o Atlântico para sua primeira turnê europeia. O roteiro está em construção e há datas em aberto.">
+      After the 2021 EP <em>Dark Side</em>…</p>
+      </div>
+    </div>
+    <div class="strip" style="justify-content:flex-start;margin-top:26px">
+      <span data-en="Est. <b>2015</b>" data-pt="Desde <b>2015</b>">Est. <b>2015</b></span><span class="div">//</span>
+      <span><b>50+</b> shows</span><span class="div">//</span>
+      <span data-en="<b>4</b> releases" data-pt="<b>4</b> lançamentos"><b>4</b> releases</span><span class="div">//</span>
+      <span data-en="New EP <b>2026</b>" data-pt="Novo EP <b>2026</b>">New EP <b>2026</b></span>
+    </div>
+  </div>
+</section>
+
+<section id="ep">
+  <div class="wrap">
+    <div class="eyebrow" data-en="New music" data-pt="Música nova">New music</div>
+    <h2 data-en="Next Up" data-pt="Vem Aí">Next Up</h2>
+    <div class="callout">
+      <img class="cover" src="/epk/covers/mars-and-venus.png" alt="Mars and Venus — single cover art">
+      <div class="body">
+        <div class="strip" style="justify-content:flex-start;margin-bottom:8px">
+          <span data-en="Single + video" data-pt="Single + clipe">Single + video</span><span class="div">//</span>
+          <span data-en="<b>September 1, 2026</b>" data-pt="<b>1º de setembro de 2026</b>"><b>September 1, 2026</b></span>
+        </div>
+        <div class="t">“Mars and Venus”</div>
+        <p style="margin-top:10px"
+          data-en="Lead single from the upcoming EP, currently in recording: the record Morning Storm brings to Europe in early 2027."
+          data-pt="Single de trabalho do novo EP, em gravação: o disco que a Morning Storm leva para a Europa no início de 2027.">
+          Lead single from the upcoming EP.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="discography">
+  <div class="wrap">
+    <div class="eyebrow" data-en="Listen" data-pt="Ouça">Listen</div>
+    <h2 data-en="Discography" data-pt="Discografia">Discography</h2>
+    <div class="disco">
+      <a class="rel" href="https://open.spotify.com/artist/00cH3oVJcHmZCkj8xq1Cs2" target="_blank" rel="noopener">
+        <img class="cover" src="/epk/covers/fight-for-your-life.jpg" alt="Fight for Your Life — cover art" loading="lazy">
+        <div class="y">2024</div><div class="t">Fight for Your Life</div><div class="f">Single</div></a>
+      <a class="rel" href="https://open.spotify.com/artist/00cH3oVJcHmZCkj8xq1Cs2" target="_blank" rel="noopener">
+        <img class="cover" src="/epk/covers/failed-attempt.jpg" alt="Failed Attempt to Do Something Good — cover art" loading="lazy">
+        <div class="y">2023</div><div class="t">Failed Attempt to Do Something Good</div><div class="f">EP</div></a>
+      <a class="rel" href="https://open.spotify.com/artist/00cH3oVJcHmZCkj8xq1Cs2" target="_blank" rel="noopener">
+        <img class="cover" src="/epk/covers/ghost-town.jpg" alt="Ghost Town — cover art" loading="lazy">
+        <div class="y">2023</div><div class="t">Ghost Town</div><div class="f">Single</div></a>
+      <a class="rel" href="https://open.spotify.com/artist/00cH3oVJcHmZCkj8xq1Cs2" target="_blank" rel="noopener">
+        <img class="cover" src="/epk/covers/dark-side.jpg" alt="Dark Side — EP cover art" loading="lazy">
+        <div class="y">2021</div><div class="t">Dark Side</div><div class="f">EP</div></a>
+    </div>
+  </div>
+</section>
+
+<section id="live">
+  <div class="wrap">
+    <div class="eyebrow" data-en="On stage" data-pt="No palco">On stage</div>
+    <h2 data-en="Shows" data-pt="Shows">Shows</h2>
+
+    <!-- Conteúdo gerado a partir de gigs.json pelo admin do Circuit Mapper.
+         O markup abaixo é o FALLBACK: fica visível se gigs.json não carregar,
+         para que a seção nunca apareça vazia para um booker. Ao carregar, o JS
+         no fim da página substitui #gigs-root inteiro. -->
+    <div id="gigs-root">
+      <div class="gig-pin">
+        <img src="/epk/gig-29out.jpg" alt="RODOX — Originals Tour, Blumenau, Oct 29 — Morning Storm opening">
+        <div>
+          <span class="tag" data-en="Featured" data-pt="Destaque">Featured</span>
+          <h3>RODOX — Originals Tour</h3>
+          <div class="meta" data-en="Oct 29, 2026 · Rivage · Blumenau/SC"
+            data-pt="29 out 2026 · Rivage · Blumenau/SC">Oct 29, 2026 · Rivage · Blumenau/SC</div>
+          <p data-en="Opening for <b>RODOX</b>, the new band of Rodolfo Abrantes (ex-Raimundos) and Fernando Scherer (Worst, Pavilhão 9) — one of the leading acts in Brazil's current hardcore/metal scene."
+            data-pt="Abrindo para o <b>RODOX</b>, a nova banda de Rodolfo Abrantes (ex-Raimundos) e Fernando Scherer (Worst, Pavilhão 9) — um dos principais nomes da cena hardcore/metal brasileira atual.">Opening for <b>RODOX</b>, the new band of Rodolfo Abrantes (ex-Raimundos) and Fernando Scherer (Worst, Pavilhão 9) — one of the leading acts in Brazil's current hardcore/metal scene.</p>
+        </div>
+      </div>
+      <div class="gig-sub" data-en="Past events" data-pt="Eventos passados">Past events</div>
+      <div class="gigs">
+        <figure>
+          <img src="/epk/gig-11jul.png" alt="Zero Pila 2nd edition — Morning Storm live poster" loading="lazy">
+          <figcaption data-en="<b>Jul 11, 2026</b>Serial Ink Tattoo Club · Blumenau/SC<br>With Chamas de Hades, Perdidos no Tempo, Break the System"
+            data-pt="<b>11 jul 2026</b>Serial Ink Tattoo Club · Blumenau/SC<br>Com Chamas de Hades, Perdidos no Tempo, Break the System"><b>Jul 11, 2026</b>Serial Ink Tattoo Club · Blumenau/SC<br>With Chamas de Hades, Perdidos no Tempo, Break the System</figcaption>
+        </figure>
+        <figure>
+          <img src="/epk/gig-28jun.png" alt="Underground Celebration — Morning Storm live poster" loading="lazy">
+          <figcaption data-en="<b>Jun 28, 2026</b>DOM Underground Club · Blumenau/SC<br>With Chamas de Hades, Atheros, Sugar Coated"
+            data-pt="<b>28 jun 2026</b>DOM Underground Club · Blumenau/SC<br>Com Chamas de Hades, Atheros, Sugar Coated"><b>Jun 28, 2026</b>DOM Underground Club · Blumenau/SC<br>With Chamas de Hades, Atheros, Sugar Coated</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <p class="muted" style="margin-top:18px" data-en="50+ shows across southern Brazil since 2015."
+      data-pt="Mais de 50 shows pelo sul do Brasil desde 2015.">50+ shows across southern Brazil since 2015.</p>
+  </div>
+</section>
+
+<section id="lineup">
+  <div class="wrap">
+    <div class="eyebrow" data-en="Three-piece" data-pt="Power trio">Three-piece</div>
+    <h2 data-en="Lineup" data-pt="Formação">Lineup</h2>
+    <div class="lineup">
+      <div class="member"><div class="n">Rian Rau</div><div class="r" data-en="Vocals · Guitar" data-pt="Vocal · Guitarra">Vocals · Guitar</div></div>
+      <div class="member"><div class="n">Je Claver</div><div class="r" data-en="Bass" data-pt="Baixo">Bass</div></div>
+      <div class="member"><div class="n">Brian de Freitas</div><div class="r" data-en="Drums" data-pt="Bateria">Drums</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="photos">
+  <div class="wrap">
+    <div class="eyebrow" data-en="Photos &amp; logos" data-pt="Fotos &amp; logos">Photos &amp; logos</div>
+    <h2 data-en="Official promotional images" data-pt="Imagens oficiais de divulgação">Official promotional images</h2>
+    <!-- FOTOS: troque cada div.ph por <img src="/epk/fotos/nome.jpg" alt="Morning Storm — descrição"> -->
+    <div class="photos">
+      <a href="/epk/morning-storm-vertical-01.jpeg" target="_blank" rel="noopener">
+        <img class="crop" src="/epk/morning-storm-vertical-01-low.jpg" alt="Morning Storm — press photo (vertical)" loading="lazy"></a>
+      <a href="/epk/morning-storm-horizontal-01.jpg" target="_blank" rel="noopener">
+        <img src="/epk/morning-storm-horizontal-01-low.jpg" alt="Morning Storm — press photo (horizontal)" loading="lazy"></a>
+      <a href="/epk/morning-storm-logos.zip" download>
+        <img src="/epk/morning-storm-logos-zip-download.jpg" alt="Morning Storm — logos (ZIP download)" loading="lazy"></a>
+    </div>
+    <p class="muted" style="margin-top:12px;font-size:14px"
+      data-en="Click to download high-res images and logos kit."
+      data-pt="Clique para baixar imagens em alta resolução e o kit de logos.">Click to download high-res images and logos kit.</p>
+  </div>
+</section>
+
+<div class="booking">
+  <div class="wrap">
+    <div class="eyebrow" data-en="European Tour · Early 2027 · Dates Open"
+      data-pt="Turnê Europeia · Início de 2027 · Datas em Aberto">European Tour · Early 2027 · Dates Open</div>
+    <h2 style="margin-bottom:18px">Booking</h2>
+    <div class="contact">
+      <a href="mailto:morningstorm.band@gmail.com">morningstorm.band@gmail.com</a>
+      <span class="div">|</span>
+      <a href="https://wa.me/554796561957" target="_blank" rel="noopener">WhatsApp: +55 47 9656-1957</a>
+    </div>
+    <div class="strip" style="margin-top:22px">
+      <span>EPK</span><span class="div">//</span><span>Morning Storm</span><span class="div">//</span>
+      <span data-en="Blumenau · Brazil" data-pt="Blumenau · Brasil">Blumenau · Brazil</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap strip" style="justify-content:space-between">
+    <span>© Morning Storm</span>
+    <span class="muted" style="letter-spacing:.1em" data-en="Stoner / Sludge — since 2015"
+      data-pt="Stoner / Sludge — desde 2015">Stoner / Sludge — since 2015</span>
+  </div>
+</footer>
+
+<script>
+let msLang = 'en';
+
+function setLang(lang) {
+  msLang = lang;
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = el.dataset[lang];
+  });
+  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+  document.title = lang === 'pt' ? 'MORNING STORM — EPK · Press Kit Eletrônico' : 'MORNING STORM — EPK · Electronic Press Kit';
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const qsLang = new URLSearchParams(location.search).get('l');
+  const lang = (qsLang === 'pt' || qsLang === 'en')
+    ? qsLang
+    : (navigator.language.toLowerCase().startsWith('pt') ? 'pt' : 'en');
+  setLang(lang);
+  loadGigs();
+});
+
+/* Nem todo vídeo tem maxresdefault: em uploads antigos (Dark Side) o i.ytimg
+   devolve um placeholder cinza de 120x90 com status 404, e o Chrome dispara
+   load — não error — porque o corpo é um JPEG válido. Por isso a queda de
+   resolução é decidida pelo tamanho da imagem, não pelo evento de erro. */
+const MS_POSTER_CHAIN = ['maxresdefault', 'sddefault', 'hqdefault'];
+function msPoster(img, failed) {
+  if (!failed && img.naturalWidth > 120) return;
+  const step = Number(img.dataset.step || 0) + 1;
+  if (step >= MS_POSTER_CHAIN.length) return;
+  img.dataset.step = step;
+  img.src = img.src.replace(/\/[a-z]+\.jpg/, '/' + MS_POSTER_CHAIN[step] + '.jpg');
+}
+
+/* ===== Vídeos: player em fachada =====
+   O #ms-player nasce como <img> + botão. O iframe do YouTube só é criado no
+   primeiro clique — com cinco embeds estáticos a página carregaria cinco
+   players de terceiros antes de o visitante assistir a qualquer coisa.
+
+   O rótulo de cada thumb carrega data-en E data-pt (ver setLang), e a legenda
+   #ms-nowplaying copia os dois atributos ao trocar de faixa: sem isso ela
+   sumiria quando o visitante mudasse de idioma. */
+function msVideo(btn) {
+  const id = btn.dataset.vid;
+  const label = btn.querySelector('.vt');
+  document.getElementById('ms-player').innerHTML =
+    '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0"'
+    + ' title="Morning Storm — ' + label.dataset.en + '"'
+    + ' allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"'
+    + ' allowfullscreen></iframe>';
+  document.querySelectorAll('#ms-vidrow .vthumb').forEach(b => b.setAttribute('aria-current', 'false'));
+  btn.setAttribute('aria-current', 'true');
+  const cap = document.getElementById('ms-nowplaying');
+  cap.dataset.en = label.dataset.en;
+  cap.dataset.pt = label.dataset.pt;
+  cap.innerHTML = label.dataset[msLang];
+}
+
+// Clique no botão grande: toca o que estiver marcado na fileira.
+function msPlayCurrent() {
+  const active = document.querySelector('#ms-vidrow .vthumb[aria-current="true"]')
+    || document.querySelector('#ms-vidrow .vthumb');
+  if (active) msVideo(active);
+}
+
+/* ===== Shows: renderiza #gigs-root a partir de gigs.json =====
+   gigs.json é publicado pelo admin do Circuit Mapper (aba "Shows MS"), que
+   commita o arquivo e os pôsteres neste repo. Nada é buscado em runtime fora
+   deste domínio: se o VPS do admin cair, o EPK continua igual.
+
+   Todo elemento de texto criado aqui nasce com data-en E data-pt, porque
+   setLang() sobrescreve o innerHTML de tudo que tem [data-en] — um elemento
+   com só um dos dois some quando o visitante troca de idioma. */
+const GIG_MONTHS = {
+  en: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+  pt: ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']
+};
+// Campos vindos da extração por IA: escapa < e " para não quebrar o atributo.
+const gEsc = v => String(v == null ? '' : v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+// Notas escritas à mão por nós: mantém o HTML (<b>, <em>), escapa só as aspas
+// que fechariam o atributo cedo.
+const gAttr = v => String(v == null ? '' : v).replace(/"/g, '&quot;');
+
+function gigDate(iso, lang) {
+  if (!iso) return '';
+  const [y, m, d] = iso.split('-').map(Number);
+  if (!y || !m || !d) return iso;
+  return lang === 'pt' ? `${d} ${GIG_MONTHS.pt[m - 1]} ${y}` : `${GIG_MONTHS.en[m - 1]} ${d}, ${y}`;
+}
+function gigPlace(g) {
+  const cityUf = [g.city, g.uf].filter(Boolean).join('/');
+  return [g.venue, cityUf].filter(Boolean).map(gEsc).join(' · ');
+}
+function gigWith(g, lang) {
+  const acts = (g.acts || []).filter(Boolean);
+  if (!acts.length) return '';
+  const list = acts.map(gEsc).join(', ');
+  if (g.role === 'abertura') return (lang === 'pt' ? 'Abrindo para ' : 'Opening for ') + list;
+  return (lang === 'pt' ? 'Com ' : 'With ') + list;
+}
+// Constrói um elemento bilíngue já no idioma corrente, com os dois idiomas nos
+// data-attributes para o toggle continuar funcionando.
+function gigEl(tag, cls, en, pt) {
+  return `<${tag}${cls ? ` class="${cls}"` : ''} data-en="${gAttr(en)}" data-pt="${gAttr(pt)}">${msLang === 'pt' ? pt : en}</${tag}>`;
+}
+
+function gigPinCard(g) {
+  const meta = l => [gigDate(g.date, l), gigPlace(g)].filter(Boolean).join(' · ');
+  const noteEn = g.note && g.note.en ? g.note.en : gigWith(g, 'en');
+  const notePt = g.note && g.note.pt ? g.note.pt : gigWith(g, 'pt');
+  const alt = [g.title, g.venue, g.city].filter(Boolean).join(' — ');
+  return `<div class="gig-pin">
+    <img src="/epk/${gEsc(g.poster)}" alt="Morning Storm — ${gEsc(alt)}">
+    <div>
+      ${gigEl('span', 'tag', 'Featured', 'Destaque')}
+      <h3>${gEsc(g.title || g.venue || '')}</h3>
+      ${gigEl('div', 'meta', meta('en'), meta('pt'))}
+      ${noteEn || notePt ? gigEl('p', '', noteEn, notePt) : ''}
+      ${g.ticketUrl ? `<a class="tix" href="${gEsc(g.ticketUrl)}" target="_blank" rel="noopener"
+        data-en="Tickets" data-pt="Ingressos">${msLang === 'pt' ? 'Ingressos' : 'Tickets'}</a>` : ''}
+    </div>
+  </div>`;
+}
+
+function gigFigure(g) {
+  const cap = l => `<b>${gigDate(g.date, l)}</b>${gigPlace(g)}`
+    + (gigWith(g, l) ? '<br>' + gigWith(g, l) : '');
+  const alt = [g.title, g.venue, g.city].filter(Boolean).join(' — ');
+  return `<figure>
+    <img src="/epk/${gEsc(g.poster)}" alt="Morning Storm — ${gEsc(alt)}" loading="lazy">
+    ${gigEl('figcaption', '', cap('en'), cap('pt'))}
+  </figure>`;
+}
+
+async function loadGigs() {
+  const root = document.getElementById('gigs-root');
+  if (!root) return;
+  let data;
+  try {
+    const r = await fetch('/epk/gigs.json', { cache: 'no-cache' });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    data = await r.json();
+  } catch (e) {
+    // Mantém o fallback estático que já está no HTML — a seção nunca fica vazia.
+    console.warn('[gigs] usando fallback estático:', e.message);
+    return;
+  }
+  const gigs = (data && Array.isArray(data.gigs) ? data.gigs : []).filter(g => g && g.poster);
+  if (!gigs.length) return;
+
+  const today = new Date().toISOString().slice(0, 10);
+  const pinned = gigs.find(g => g.pinned);
+  const rest = gigs.filter(g => g !== pinned);
+  const upcoming = rest.filter(g => g.date && g.date >= today).sort((a, b) => a.date.localeCompare(b.date));
+  // Sem data cai em "passados": um pôster sem data não pode ser anunciado como
+  // show futuro no material que vai para booker.
+  const past = rest.filter(g => !g.date || g.date < today)
+    .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+  let html = '';
+  if (pinned) html += gigPinCard(pinned);
+  if (upcoming.length) {
+    if (pinned) html += gigEl('div', 'gig-sub', 'Upcoming', 'Próximos shows');
+    html += `<div class="gigs">${upcoming.map(gigFigure).join('')}</div>`;
+  }
+  if (past.length) {
+    html += gigEl('div', 'gig-sub', 'Past events', 'Eventos passados');
+    html += `<div class="gigs">${past.map(gigFigure).join('')}</div>`;
+  }
+  root.innerHTML = html;
+}
+</script>
+
+</body>
+</html>
