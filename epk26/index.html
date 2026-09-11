@@ -307,8 +307,9 @@ header .wrap{position:relative;z-index:2}
     <h2 data-en="Videos" data-pt="Vídeos">Videos</h2>
 
     <div class="video" id="ms-player" style="margin-top:18px">
-      <img class="vposter" id="ms-poster" src="https://i.ytimg.com/vi/YGgUEh_j6aE/maxresdefault.jpg"
-        onload="msPoster(this)" onerror="msPoster(this, true)"
+      <!-- hqdefault, não maxresdefault: o Dark Side é upload antigo e só tem essa
+           resolução. Ver o comentário sobre sondagem de poster no script. -->
+      <img class="vposter" id="ms-poster" src="https://i.ytimg.com/vi/YGgUEh_j6aE/hqdefault.jpg"
         alt="Morning Storm — Dark Side">
       <button class="vplay" type="button" onclick="msPlayCurrent()">
         <span class="sr" data-en="Play video" data-pt="Reproduzir vídeo">Play video</span>
@@ -542,18 +543,19 @@ document.addEventListener('DOMContentLoaded', () => {
   loadGigs();
 });
 
-/* Nem todo vídeo tem maxresdefault: em uploads antigos (Dark Side) o i.ytimg
-   devolve um placeholder cinza de 120x90 com status 404, e o Chrome dispara
-   load — não error — porque o corpo é um JPEG válido. Por isso a queda de
-   resolução é decidida pelo tamanho da imagem, não pelo evento de erro. */
-const MS_POSTER_CHAIN = ['maxresdefault', 'sddefault', 'hqdefault'];
-function msPoster(img, failed) {
-  if (!failed && img.naturalWidth > 120) return;
-  const step = Number(img.dataset.step || 0) + 1;
-  if (step >= MS_POSTER_CHAIN.length) return;
-  img.dataset.step = step;
-  img.src = img.src.replace(/\/[a-z]+\.jpg/, '/' + MS_POSTER_CHAIN[step] + '.jpg');
-}
+/* Poster do destaque: NÃO sondar resolução em runtime.
+   Nem todo vídeo tem maxresdefault — uploads antigos como o Dark Side só têm
+   hqdefault. Uma versão anterior pedia maxresdefault e caía para sddefault e
+   hqdefault conforme falhasse, o que custava caro: o i.ytimg responde os 404
+   pela origem (2s a 3s cada, medido), enquanto o hqdefault vem do CDN em
+   ~150ms. Eram duas requisições em série antes da imagem certa, e nesse
+   intervalo o player mostrava o placeholder cinza de 120x90 do YouTube
+   esticado na caixa inteira.
+   (O onerror também não resolveria: o corpo do 404 é um JPEG válido, então o
+   Chrome dispara load, não error.)
+   hqdefault existe para todo vídeo. Ao trocar o destaque, confira com
+   `curl -o /dev/null -w '%{http_code}' https://i.ytimg.com/vi/<ID>/maxresdefault.jpg`
+   e escreva no src a maior resolução que responder 200. */
 
 /* ===== Vídeos: player em fachada =====
    O #ms-player nasce como <img> + botão. O iframe do YouTube só é criado no
